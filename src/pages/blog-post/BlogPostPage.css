@@ -1,0 +1,8 @@
+.blog-post-page {
+  min-height: 100vh;
+  background-color: var(--dominant);
+}
+
+.blog-post-back {
+  margin-bottom: 2rem;
+}
