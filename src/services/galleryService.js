@@ -1,30 +1,42 @@
 import api from './api';
 
-// Get all gallery images
+// Get all gallery posts
 export const getAllGalleryImages = async () => {
   const response = await api.get('/gallery');
   return response.data;
 };
 
-// Get single gallery image
+// Get single gallery post
 export const getGalleryImage = async (id) => {
   const response = await api.get(`/gallery/${id}`);
   return response.data;
 };
 
-// Create gallery image (protected)
-export const createGalleryImage = async (imageData) => {
-  const response = await api.post('/gallery', imageData);
+// Create gallery post with multiple images (protected)
+export const createGalleryImage = async (postData) => {
+  const response = await api.post('/gallery', postData);
   return response.data;
 };
 
-// Update gallery image (protected)
-export const updateGalleryImage = async (id, imageData) => {
-  const response = await api.put(`/gallery/${id}`, imageData);
+// Update gallery post (protected)
+export const updateGalleryImage = async (id, postData) => {
+  const response = await api.put(`/gallery/${id}`, postData);
   return response.data;
 };
 
-// Delete gallery image (protected)
+// Add image to existing post (protected)
+export const addImageToPost = async (id, imageData) => {
+  const response = await api.post(`/gallery/${id}/images`, imageData);
+  return response.data;
+};
+
+// Remove image from post (protected)
+export const removeImageFromPost = async (id, imageIndex) => {
+  const response = await api.delete(`/gallery/${id}/images/${imageIndex}`);
+  return response.data;
+};
+
+// Delete entire gallery post (protected)
 export const deleteGalleryImage = async (id) => {
   const response = await api.delete(`/gallery/${id}`);
   return response.data;
