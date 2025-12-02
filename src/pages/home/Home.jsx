@@ -12,7 +12,7 @@ const CallToAction = lazy(() => import('../../components/home/call-to-action/Cal
 
 // Light skeleton/placeholder while loading
 const ComponentLoader = () => (
-  <div style={{ height: '400px', background: '#f0f0f0', animation: 'pulse 2s infinite' }} />
+  <div style={{ height: '400px', background: '#000000ff', animation: 'pulse 2s infinite' }} />
 );
 
 const Home = () => {

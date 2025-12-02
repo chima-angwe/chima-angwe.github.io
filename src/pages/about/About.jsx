@@ -12,7 +12,7 @@ const GallerySection = lazy(() => import('../../components/about/gallery-section
 const AwardsSection = lazy(() => import('../../components/about/awards-section/AwardsSection'));
 
 const SectionLoader = () => (
-  <div style={{ height: '300px', background: '#f0f0f0', animation: 'pulse 2s infinite' }} />
+  <div style={{ height: '300px', background: '#000000ff', animation: 'pulse 2s infinite' }} />
 );
 
 const About = () => {
