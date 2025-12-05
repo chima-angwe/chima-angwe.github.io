@@ -27,7 +27,7 @@ const ProjectFormModal = ({ project, onClose }) => {
       description: '',
       fullDescription: '',
       thumbnail: '',
-      techStack: [],
+      techStack: '',
       category: 'Web App',
       liveUrl: '',
       githubUrl: '',
@@ -64,7 +64,11 @@ const ProjectFormModal = ({ project, onClose }) => {
       setIsSubmitting(true);
       setSubmitError('');
 
-      // Convert tech stack from comma-separated string to array
+      if (!data.thumbnail) {
+        setSubmitError('Please upload or provide a thumbnail image');
+        return;
+      }
+
       const formattedData = {
         ...data,
         techStack: data.techStack
@@ -133,6 +137,15 @@ const ProjectFormModal = ({ project, onClose }) => {
               required
             />
 
+            <Input
+              label="Tech Stack (comma-separated)"
+              name="techStack"
+              placeholder="React, Node.js, MongoDB, Stripe"
+              register={register}
+              error={errors.techStack}
+              required
+            />
+
             <div className="form-group">
               <label>Thumbnail Image</label>
               <input
@@ -141,7 +154,7 @@ const ProjectFormModal = ({ project, onClose }) => {
                 onChange={handleImageUpload}
                 disabled={uploadingImage}
               />
-              {uploadingImage && <p>Uploading...</p>}
+              {uploadingImage && <p className="uploading">Uploading...</p>}
               {thumbnailUrl && (
                 <img src={thumbnailUrl} alt="Preview" className="image-preview" />
               )}
@@ -153,16 +166,6 @@ const ProjectFormModal = ({ project, onClose }) => {
               placeholder="https://..."
               register={register}
               error={errors.thumbnail}
-              required
-            />
-
-            <Input
-              label="Tech Stack (comma-separated)"
-              name="techStack"
-              placeholder="React, Node.js, MongoDB, Stripe"
-              register={register}
-              error={errors.techStack}
-              required
             />
 
             <div className="form-group">
@@ -204,7 +207,7 @@ const ProjectFormModal = ({ project, onClose }) => {
                 Cancel
               </Button>
               <Button type="submit" variant="primary" disabled={isSubmitting}>
-                {isSubmitting ? 'Saving...' : project ? 'Update' : 'Create'}
+                {isSubmitting ? 'Saving...' : project ? 'Update Project' : 'Create Project'}
               </Button>
             </div>
           </form>

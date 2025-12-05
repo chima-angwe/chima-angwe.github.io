@@ -28,7 +28,7 @@ const BlogFormModal = ({ post, onClose }) => {
       content: '',
       featuredImage: '',
       category: 'Tech',
-      tags: [],
+      tags: '',
       published: true,
     },
   });
@@ -61,6 +61,11 @@ const BlogFormModal = ({ post, onClose }) => {
     try {
       setIsSubmitting(true);
       setSubmitError('');
+
+      if (!data.featuredImage) {
+        setSubmitError('Please upload or provide a featured image');
+        return;
+      }
 
       const formattedData = {
         ...data,
@@ -131,6 +136,13 @@ const BlogFormModal = ({ post, onClose }) => {
               required
             />
 
+            <Input
+              label="Tags (comma-separated)"
+              name="tags"
+              placeholder="React, JavaScript, Tutorial"
+              register={register}
+            />
+
             <div className="form-group">
               <label>Featured Image</label>
               <input
@@ -139,7 +151,7 @@ const BlogFormModal = ({ post, onClose }) => {
                 onChange={handleImageUpload}
                 disabled={uploadingImage}
               />
-              {uploadingImage && <p>Uploading...</p>}
+              {uploadingImage && <p className="uploading">Uploading...</p>}
               {featuredImage && (
                 <img src={featuredImage} alt="Preview" className="image-preview" />
               )}
@@ -151,7 +163,6 @@ const BlogFormModal = ({ post, onClose }) => {
               placeholder="https://..."
               register={register}
               error={errors.featuredImage}
-              required
             />
 
             <div className="form-group">
@@ -164,13 +175,6 @@ const BlogFormModal = ({ post, onClose }) => {
                 ))}
               </select>
             </div>
-
-            <Input
-              label="Tags (comma-separated)"
-              name="tags"
-              placeholder="React, JavaScript, Tutorial"
-              register={register}
-            />
 
             <div className="form-group">
               <label className="checkbox-label">
@@ -186,7 +190,7 @@ const BlogFormModal = ({ post, onClose }) => {
                 Cancel
               </Button>
               <Button type="submit" variant="primary" disabled={isSubmitting}>
-                {isSubmitting ? 'Saving...' : post ? 'Update' : 'Create'}
+                {isSubmitting ? 'Saving...' : post ? 'Update Post' : 'Create Post'}
               </Button>
             </div>
           </form>

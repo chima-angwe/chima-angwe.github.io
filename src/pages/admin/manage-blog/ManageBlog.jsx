@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPlus, FaEdit, FaTrash, FaEye } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import { useFetch } from '../../../hooks/useFetch';
 import { getAllBlogPosts, deleteBlogPost } from '../../../services/blogService';
 import Button from '../../../components/common/button/Button';
 import Loader from '../../../components/common/loader/Loader';
 import ErrorMessage from '../../../components/common/error-message/ErrorMessage';
-import BlogFormModal from '../../../components/admin/blog-form/BlogFormModal';
-import { formatDate } from '../../../utils/formatDate';
 import './ManageBlog.css';
+
+// Lazy load the modal (only needed when creating/editing)
+const BlogFormModal = lazy(() => import('../../../components/admin/blog-form/BlogFormModal'));
+
+// Lazy load table component
+const BlogPostsTable = lazy(() => import('../BlogPostsTable'));
+const EmptyBlogState = lazy(() => import('../EmptyBlogState'));
+
+const TableLoader = () => (
+  <div className="table-loader">
+    <div className="loader-skeleton" style={{ height: '400px' }} />
+  </div>
+);
 
 const ManageBlog = () => {
   const [showModal, setShowModal] = useState(false);
@@ -49,6 +60,7 @@ const ManageBlog = () => {
 
   return (
     <div className="manage-blog-page">
+      {/* Header - loads immediately */}
       <div className="manage-header">
         <div>
           <h1 className="manage-title">Manage Blog Posts</h1>
@@ -60,89 +72,22 @@ const ManageBlog = () => {
         </Button>
       </div>
 
+      {/* Content - lazy loaded */}
       {posts.length > 0 ? (
-        <div className="blog-table-wrapper">
-          <table className="blog-table">
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Published</th>
-                <th>Views</th>
-                <th>Created</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {posts.map((post) => (
-                <motion.tr
-                  key={post._id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <td>
-                    <img
-                      src={post.featuredImage}
-                      alt={post.title}
-                      className="post-thumbnail"
-                    />
-                  </td>
-                  <td className="post-title-cell">{post.title}</td>
-                  <td>
-                    <span className="post-category">{post.category}</span>
-                  </td>
-                  <td>
-                    {post.published ? (
-                      <span className="badge-success">Yes</span>
-                    ) : (
-                      <span className="badge-default">No</span>
-                    )}
-                  </td>
-                  <td>{post.views}</td>
-                  <td>{formatDate(post.createdAt)}</td>
-                  <td>
-                    <div className="action-buttons">
-                      <button
-                        onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
-                        className="action-btn view-btn"
-                        title="View"
-                      >
-                        <FaEye size={16} />
-                      </button>
-                      <button
-                        onClick={() => handleEdit(post)}
-                        className="action-btn edit-btn"
-                        title="Edit"
-                      >
-                        <FaEdit size={16} />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(post._id)}
-                        className="action-btn delete-btn"
-                        title="Delete"
-                      >
-                        <FaTrash size={16} />
-                      </button>
-                    </div>
-                  </td>
-                </motion.tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Suspense fallback={<TableLoader />}>
+          <BlogPostsTable posts={posts} onEdit={handleEdit} onDelete={handleDelete} />
+        </Suspense>
       ) : (
-        <div className="empty-state">
-          <p>No blog posts yet. Create your first post!</p>
-          <Button variant="primary" onClick={handleCreate}>
-            <FaPlus size={16} className="mr-2" />
-            Create Post
-          </Button>
-        </div>
+        <Suspense fallback={<TableLoader />}>
+          <EmptyBlogState onCreate={handleCreate} />
+        </Suspense>
       )}
 
+      {/* Modal - lazy loaded (only when needed) */}
       {showModal && (
-        <BlogFormModal post={editingPost} onClose={handleModalClose} />
+        <Suspense fallback={null}>
+          <BlogFormModal post={editingPost} onClose={handleModalClose} />
+        </Suspense>
       )}
     </div>
   );

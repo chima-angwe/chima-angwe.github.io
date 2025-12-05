@@ -1,5 +1,4 @@
-
-.modal-overlay {
+.pm-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +13,7 @@
   overflow-y: auto;
 }
 
-.modal-content {
+.pm-modal-content {
   background-color: var(--gray-dark);
   border-radius: 0.75rem;
   max-width: 56rem;
@@ -24,7 +23,7 @@
   position: relative;
 }
 
-.modal-close {
+.pm-modal-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -42,22 +41,22 @@
   z-index: 10;
 }
 
-.modal-close:hover {
+.pm-modal-close:hover {
   background-color: var(--primary);
   transform: rotate(90deg);
 }
 
-.modal-body {
+.pm-modal-body {
   padding: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .modal-body {
+  .pm-modal-body {
     padding: 2rem;
   }
 }
 
-.modal-image-wrapper {
+.pm-modal-image-wrapper {
   width: 100%;
   height: 20rem;
   border-radius: 0.5rem;
@@ -66,24 +65,24 @@
 }
 
 @media (min-width: 768px) {
-  .modal-image-wrapper {
+  .pm-modal-image-wrapper {
     height: 24rem;
   }
 }
 
-.modal-image {
+.pm-modal-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.modal-info {
+.pm-modal-info {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.modal-category {
+.pm-modal-category {
   font-size: 0.75rem;
   color: var(--primary);
   font-weight: 600;
@@ -91,7 +90,7 @@
   letter-spacing: 0.05em;
 }
 
-.modal-title {
+.pm-modal-title {
   font-size: 2rem;
   font-weight: 700;
   color: var(--secondary);
@@ -99,36 +98,36 @@
 }
 
 @media (min-width: 768px) {
-  .modal-title {
+  .pm-modal-title {
     font-size: 2.5rem;
   }
 }
 
-.modal-description {
+.pm-modal-description {
   font-size: 1rem;
   color: var(--gray-medium);
   line-height: 1.6;
   margin: 0;
 }
 
-.modal-section {
+.pm-modal-section {
   margin-top: 1.5rem;
 }
 
-.modal-section-title {
+.pm-modal-section-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--secondary);
   margin-bottom: 1rem;
 }
 
-.modal-tech {
+.pm-modal-tech {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
 
-.modal-tech-badge {
+.pm-modal-tech-badge {
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
   background-color: rgba(220, 38, 38, 0.1);
@@ -137,22 +136,20 @@
   border: 1px solid var(--primary);
 }
 
-/* Grid Gallery (for 2 or fewer images) */
-.modal-gallery {
+.pm-modal-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
-.modal-gallery-image {
+.pm-modal-gallery-image {
   width: 100%;
   height: 12rem;
   object-fit: cover;
   border-radius: 0.5rem;
 }
 
-/* Carousel Styles (for more than 2 images) */
-.carousel-container {
+.pm-carousel-container {
   position: relative;
   width: 100%;
   height: 24rem;
@@ -162,12 +159,12 @@
 }
 
 @media (min-width: 768px) {
-  .carousel-container {
+  .pm-carousel-container {
     height: 28rem;
   }
 }
 
-.carousel-track {
+.pm-carousel-track {
   width: 100%;
   height: 100%;
   display: flex;
@@ -175,13 +172,13 @@
   justify-content: center;
 }
 
-.carousel-image {
+.pm-carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.carousel-button {
+.pm-carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -200,21 +197,21 @@
   z-index: 2;
 }
 
-.carousel-button:hover {
+.pm-carousel-button:hover {
   background-color: var(--primary);
   border-color: var(--primary);
   transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-button-prev {
+.pm-carousel-button-prev {
   left: 1rem;
 }
 
-.carousel-button-next {
+.pm-carousel-button-next {
   right: 1rem;
 }
 
-.carousel-indicators {
+.pm-carousel-indicators {
   position: absolute;
   bottom: 1rem;
   left: 50%;
@@ -224,7 +221,7 @@
   z-index: 2;
 }
 
-.carousel-indicator {
+.pm-carousel-indicator {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -234,18 +231,18 @@
   transition: all 0.3s ease;
 }
 
-.carousel-indicator:hover {
+.pm-carousel-indicator:hover {
   background-color: rgba(255, 255, 255, 0.7);
   transform: scale(1.2);
 }
 
-.carousel-indicator.active {
+.pm-carousel-indicator.active {
   background-color: var(--primary);
   width: 2rem;
   border-radius: 0.375rem;
 }
 
-.carousel-counter {
+.pm-carousel-counter {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -259,14 +256,14 @@
   z-index: 2;
 }
 
-.modal-actions {
+.pm-modal-actions {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
 
-.modal-actions .btn {
+.pm-modal-actions .btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
