@@ -29,7 +29,7 @@ const Header = () => {
       <nav className="nav-pill">
         {/* Logo */}
         <Link to="/" className="logo">
-          &lt;/MA&gt;
+          Chima
         </Link>
 
         {/* Desktop Icon Navigation */}
