@@ -20,7 +20,7 @@ const Bio = () => {
         >
           <div className="bio-image-container">
             <img
-              src="https://res.cloudinary.com/dpcgk2sev/image/upload/v1763986486/me_reading_master_your_emotions_zpg98e.jpg"
+              src="https://res.cloudinary.com/dpcgk2sev/image/upload/v1767302939/my_new_chima_z7bzan.jpg"
               alt="Chima Angwe"
               className="bio-image"
             />
