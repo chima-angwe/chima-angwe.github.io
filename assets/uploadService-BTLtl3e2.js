@@ -1,0 +1,1 @@
+import{M as e}from"./index-Bc1wNwMh.js";const r=async t=>{const a=new FormData;return a.append("image",t),(await e.post("/upload/image",a,{headers:{"Content-Type":"multipart/form-data"}})).data};export{r as u};
