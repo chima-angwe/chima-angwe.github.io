@@ -48,7 +48,7 @@ const BlogPostsTable = ({ posts, onEdit, onDelete }) => {
               <td>
                 <div className="action-buttons">
                   <button
-                    onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
+                    onClick={() => window.open(`/#/blog/${post.slug}`, '_blank')}
                     className="action-btn view-btn"
                     title="View"
                   >

@@ -9,7 +9,12 @@ import ErrorMessage from '../../../components/common/error-message/ErrorMessage'
 import './ManageBlog.css';
 
 // Lazy load the modal (only needed when creating/editing)
-const BlogFormModal = lazy(() => import('../../../components/admin/blog-form/BlogFormModal'));
+const SimpleBlogFormModal = lazy(
+  () =>
+    import(
+      '../../../components/admin/simple-blog-form-modal/SimpleBlogFormModal'
+    )
+);
 
 // Lazy load table component
 const BlogPostsTable = lazy(() => import('../BlogPostsTable'));
@@ -24,7 +29,9 @@ const TableLoader = () => (
 const ManageBlog = () => {
   const [showModal, setShowModal] = useState(false);
   const [editingPost, setEditingPost] = useState(null);
-  const { data, loading, error, refetch } = useFetch(() => getAllBlogPosts(1, 1000));
+  const { data, loading, error, refetch } = useFetch(() =>
+    getAllBlogPosts(1, 1000)
+  );
 
   const posts = data?.posts || [];
 
@@ -64,7 +71,9 @@ const ManageBlog = () => {
       <div className="manage-header">
         <div>
           <h1 className="manage-title">Manage Blog Posts</h1>
-          <p className="manage-subtitle">Create, edit, and delete your blog posts</p>
+          <p className="manage-subtitle">
+            Create, edit, and delete your blog posts
+          </p>
         </div>
         <Button variant="primary" onClick={handleCreate}>
           <FaPlus size={16} className="mr-2" />
@@ -75,7 +84,11 @@ const ManageBlog = () => {
       {/* Content - lazy loaded */}
       {posts.length > 0 ? (
         <Suspense fallback={<TableLoader />}>
-          <BlogPostsTable posts={posts} onEdit={handleEdit} onDelete={handleDelete} />
+          <BlogPostsTable
+            posts={posts}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
         </Suspense>
       ) : (
         <Suspense fallback={<TableLoader />}>
@@ -86,7 +99,7 @@ const ManageBlog = () => {
       {/* Modal - lazy loaded (only when needed) */}
       {showModal && (
         <Suspense fallback={null}>
-          <BlogFormModal post={editingPost} onClose={handleModalClose} />
+          <SimpleBlogFormModal post={editingPost} onClose={handleModalClose} />
         </Suspense>
       )}
     </div>

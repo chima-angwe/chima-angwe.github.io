@@ -61,7 +61,7 @@ const ProjectsTable = ({ projects, onEdit, onDelete }) => {
               <td>
                 <div className="action-buttons">
                   <button
-                    onClick={() => window.open(`/projects`, '_blank')}
+                    onClick={() => window.open(`/#/projects`, '_blank')}
                     className="action-btn view-btn"
                     title="View"
                   >
