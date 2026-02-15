@@ -1,5 +1,6 @@
 .skills-overview {
   background-color: var(--gray-dark);
+  overflow: hidden;
 }
 
 .skills-overview-header {
@@ -25,48 +26,125 @@
   color: var(--gray-medium);
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* Carousel Wrapper */
+.skills-carousel-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
+  justify-content: center;
 }
 
-@media (min-width: 640px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Apply grayscale filter to entire carousel when hovered */
+.skills-carousel-wrapper.is-hovered {
+  filter: grayscale(100%);
+}
+
+.skills-carousel-wrapper.is-hovered .skills-carousel-track {
+  animation-play-state: paused !important;
+}
+
+/* Individual carousel */
+.skills-carousel {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%);
+}
+
+/* Carousel track - continuous scroll */
+.skills-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: fit-content;
+  animation: scroll-left 60s linear infinite;
 }
 
 @media (min-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+  .skills-carousel-track {
+    gap: 2rem;
   }
 }
 
-@media (min-width: 1024px) {
-  .skills-grid {
-    grid-template-columns: repeat(6, 1fr);
+/* Row 2 scrolls left (same direction as row 1) */
+.skills-carousel-row-2 .skills-carousel-track {
+  animation: scroll-left-row2 60s linear infinite;
+}
+
+/* Scroll left animation for row 1 */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
   }
 }
 
+/* Scroll left animation for row 2 (same as row 1) */
+@keyframes scroll-left-row2 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+/* Skill item styling - smaller boxes */
 .skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem;
+  gap: 0.5rem;
+  padding: 1rem;
   background-color: var(--dominant);
   border-radius: 0.5rem;
-  transition: transform 300ms, box-shadow 300ms;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
+  width: 110px;
+  min-height: 130px;
+  justify-content: center;
+  transition: filter 300ms;
 }
 
+@media (min-width: 768px) {
+  .skill-item {
+    width: 120px;
+    min-height: 140px;
+    padding: 1.2rem;
+    gap: 0.6rem;
+  }
+}
+
+/* Grayscale items for row 2 */
+.skill-item.grayscale-item {
+  width: 85px;
+  min-height: 105px;
+  padding: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .skill-item.grayscale-item {
+    width: 95px;
+    min-height: 115px;
+    padding: 0.9rem;
+  }
+}
+
+/* Grid background effect */
 .skill-item::before {
   content: '';
   position: absolute;
@@ -80,6 +158,7 @@
   background-size: 40px 40px;
   z-index: 0;
   animation: gridPulse 4s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @keyframes gridPulse {
@@ -93,21 +172,41 @@
     opacity: 0.6;
   }
 }
-.skill-item:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-}
 
 .skill-icon {
-  transition: transform 300ms;
-}
-
-.skill-item:hover .skill-icon {
-  transform: scale(1.1);
+  transition: color 300ms;
+  position: relative;
+  z-index: 1;
 }
 
 .skill-name {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--secondary);
   text-align: center;
   font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .skill-item {
+    width: 100px;
+    min-height: 120px;
+    padding: 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .skills-carousel-track {
+    gap: 1rem;
+  }
+
+  .skill-name {
+    font-size: 0.65rem;
+  }
+
+  .skill-icon {
+    width: 32px;
+    height: 32px;
+  }
 }

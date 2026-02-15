@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaFolder, FaBlog, FaImages, FaEye } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const QuickActionsSection = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       className="dashboard-actions"
@@ -25,10 +28,14 @@ const QuickActionsSection = () => {
           <FaImages size={24} />
           <span>Manage Gallery</span>
         </Link>
-        <Link to="#/" className="action-card">
+        <div
+          className="action-card"
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer' }}
+        >
           <FaEye size={24} />
           <span>View Live Site</span>
-        </Link>
+        </div>
       </div>
     </motion.div>
   );
