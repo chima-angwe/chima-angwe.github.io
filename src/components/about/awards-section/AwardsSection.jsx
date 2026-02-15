@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaTrophy, FaCertificate } from 'react-icons/fa';
+import { MdWork } from 'react-icons/md';
+
 import { containerVariants, fadeInUp } from '../../../utils/animations';
 import './AwardsSection.css';
 
@@ -8,31 +10,43 @@ const AwardsSection = () => {
   const achievements = [
     {
       icon: FaCertificate,
-      title: 'Full Stack Web Development Certification',
-      organization: 'freeCodeCamp',
-      date: '2023',
-      description: 'Completed comprehensive curriculum covering frontend and backend development.',
+      title: 'Advanced Diploma in Software Engineering',
+      organization: 'Aptech Computer Education',
+      date: '2025',
+      description:
+        'Comprehensive training in software development, covering multiple programming languages and frameworks.',
     },
     {
-      icon: FaCertificate,
-      title: 'React Advanced Patterns',
-      organization: 'Udemy',
-      date: '2023',
-      description: 'Mastered advanced React concepts including hooks, context, and performance optimization.',
+      icon: MdWork,
+      title: 'Software Engineer',
+      organization: 'BorrowXchange',
+      date: '2025-2026',
+      description:
+        'Played a key role in developing scalable web applications and improving user experience.',
     },
     {
       icon: FaTrophy,
-      title: 'Hackathon Winner',
-      organization: 'Tech Conference Lagos',
-      date: '2022',
-      description: 'First place winner for building an innovative solution to local business challenges.',
+      title: 'Award of Recognition',
+      organization: 'Aptech Computer Education',
+      date: '2025',
+      description:
+        'Received for outstanding performance and dedication during the software engineering course.',
     },
     {
       icon: FaCertificate,
-      title: 'Node.js & Express Certification',
-      organization: 'Coursera',
-      date: '2022',
-      description: 'Specialized in building RESTful APIs and server-side applications.',
+      title: 'Data Science Career Path',
+      organization: 'Udemy',
+      date: '2024',
+      description:
+        'Completed a rigorous curriculum covering data analysis and data visualization.',
+    },
+    {
+      icon: MdWork,
+      title: 'Frontend Developer',
+      organization: 'Optimalvid',
+      date: '2024',
+      description:
+        'Contributed to the development of user-friendly interfaces and improved website performance.',
     },
   ];
 
@@ -60,11 +74,7 @@ const AwardsSection = () => {
         {achievements.map((achievement, index) => {
           const Icon = achievement.icon;
           return (
-            <motion.div
-              key={index}
-              className="award-item"
-              variants={fadeInUp}
-            >
+            <motion.div key={index} className="award-item" variants={fadeInUp}>
               <div className="award-icon-wrapper">
                 <div className="award-icon">
                   <Icon size={24} />

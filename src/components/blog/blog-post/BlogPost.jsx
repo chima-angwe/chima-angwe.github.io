@@ -9,13 +9,13 @@ const BlogPost = ({ post }) => {
   const sanitizeHtml = (html) => {
     const div = document.createElement('div');
     div.innerHTML = html;
-    
+
     // Remove any script tags and other dangerous content
     const scripts = div.getElementsByTagName('script');
     for (let i = scripts.length - 1; i >= 0; i--) {
       scripts[i].remove();
     }
-    
+
     return div.innerHTML;
   };
 
@@ -34,21 +34,13 @@ const BlogPost = ({ post }) => {
       {/* Post Header */}
       <header className="blog-post-header">
         {/* Category */}
-        <span className="blog-post-category">
-          {post.category}
-        </span>
+        <span className="blog-post-category">{post.category}</span>
 
         {/* Title */}
-        <h1 className="blog-post-title">
-          {post.title}
-        </h1>
+        <h1 className="blog-post-title">{post.title}</h1>
 
         {/* Meta Info */}
         <div className="blog-post-meta">
-          <div className="blog-post-meta-item">
-            <FaUser size={14} />
-            <span>{post.author}</span>
-          </div>
           <div className="blog-post-meta-divider" />
           <div className="blog-post-meta-item">
             <FaCalendar size={14} />
@@ -83,11 +75,13 @@ const BlogPost = ({ post }) => {
             className="blog-post-action-btn"
             onClick={() => {
               if (navigator.share) {
-                navigator.share({
-                  title: post.title,
-                  text: post.excerpt,
-                  url: window.location.href,
-                }).catch(err => console.error('Share failed:', err));
+                navigator
+                  .share({
+                    title: post.title,
+                    text: post.excerpt,
+                    url: window.location.href,
+                  })
+                  .catch((err) => console.error('Share failed:', err));
               } else {
                 // Fallback for browsers that don't support navigator.share
                 alert('Share functionality not supported on this browser');
@@ -102,10 +96,10 @@ const BlogPost = ({ post }) => {
       </header>
 
       {/* Post Content - HTML Rendering */}
-      <div 
+      <div
         className="blog-post-content"
         dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(post.content || '')
+          __html: sanitizeHtml(post.content || ''),
         }}
       />
 
@@ -118,9 +112,9 @@ const BlogPost = ({ post }) => {
               {post.author.charAt(0).toUpperCase()}
             </div>
             <div>
-              <div className="blog-post-author-name">Written by {post.author}</div>
+              <div className="blog-post-author-name">Written by Chima</div>
               <div className="blog-post-author-bio">
-                Passionate about web development and sharing knowledge
+                Passionate about software development and sharing knowledge
               </div>
             </div>
           </div>
