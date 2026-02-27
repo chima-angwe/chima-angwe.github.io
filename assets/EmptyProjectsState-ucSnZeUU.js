@@ -1,0 +1,1 @@
+import{j as t,K as s}from"./index-DB-VfC2O.js";import{B as e}from"./Button-Dcto7-j_.js";const i=({onCreate:r})=>t.jsxs("div",{className:"empty-state",children:[t.jsx("p",{children:"No projects yet. Create your first project!"}),t.jsxs(e,{variant:"primary",onClick:r,children:[t.jsx(s,{size:16,className:"mr-2"}),"Create Project"]})]});export{i as default};
