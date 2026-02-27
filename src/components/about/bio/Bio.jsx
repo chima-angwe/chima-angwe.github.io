@@ -9,7 +9,7 @@ const Bio = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <section className="bio-section overflow-visible" >
+    <section className="bio-section overflow-visible">
       <div className="bio-content">
         <motion.div
           className="bio-image-wrapper"
@@ -40,16 +40,26 @@ const Bio = () => {
           <div className="bio-paragraphs">
             <p>
               Hi! I'm <span className="text-gradient">Chima Angwe</span>, a
-              passionate Full Stack Developer based in Lagos, Nigeria.
+              software engineer and founder based in Lagos, Nigeria. Right now,
+              I'm building TrueHire - a reference checking tool for recruiters.
+              I'm in customer discovery mode, talking to 20+ recruiters to
+              deeply understand their problems before writing code. (Learned
+              that lesson the hard way from my first startup.)
             </p>
-
-            <p>I build digital experiences using the MERN stack.</p>
 
             <p>
-              I enjoy learning new technologies and contributing to open source.
+              Previously, I founded BorrowXchange (P2P rental marketplace). We
+              built the full product but paused after realizing we'd built
+              without customer validation. That experience taught me: talk to
+              users first, build second
             </p>
 
-            <p>I'm open to freelance and full-time opportunities.</p>
+            <p>
+              On the technical side, I'm a full-stack developer (React, Node.js,
+              MERN stack). I build fast, clean products. Previously built
+              portfolio sites for LinkedIn coaches. I'm open to freelance work
+              and consulting while building TrueHire
+            </p>
           </div>
 
           <div className="mt-6 flex justify-start">

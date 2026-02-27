@@ -5,9 +5,18 @@ import { MdWork } from 'react-icons/md';
 
 import { containerVariants, fadeInUp } from '../../../utils/animations';
 import './AwardsSection.css';
+import { title } from 'framer-motion/client';
 
 const AwardsSection = () => {
   const achievements = [
+    {
+      icon: MdWork,
+      title: 'Software Programming Instructor',
+      organization: 'Strivon Tech',
+      date: '2026-Present',
+      description:
+        'Empowering young minds to think critically, build confidently, and create with technology.',
+    },
     {
       icon: FaCertificate,
       title: 'Advanced Diploma in Software Engineering',
@@ -31,6 +40,14 @@ const AwardsSection = () => {
       date: '2025',
       description:
         'Received for outstanding performance and dedication during the software engineering course.',
+    },
+    {
+      icon: FaCertificate,
+      title: 'YC Startup School',
+      organization: 'Y Combinator',
+      date: '2025',
+      description:
+        'Completed the Y Combinator Startup School program, gaining valuable insights into startup growth and development.',
     },
     {
       icon: FaCertificate,

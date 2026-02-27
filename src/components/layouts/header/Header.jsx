@@ -62,7 +62,7 @@ const Header = () => {
         </button>
 
         {/* Hire Me Button */}
-        <button className="hire-btn"><Link to="/contact" >Start a Project</Link></button>
+        <button className="hire-btn"><Link to="/blog" >My Founder Journey</Link></button>
       </nav>
 
       {/* Mobile Menu */}

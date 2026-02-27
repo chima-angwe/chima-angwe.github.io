@@ -54,7 +54,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            Full Stack Developer
+            Software Engineer & Founder
           </motion.h2>
 
           {/* Tagline */}
@@ -64,10 +64,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
           >
-            Building amazing web experiences with the MERN stack.
-            <br />
-            Passionate about creating beautiful, functional, and user-friendly
-            applications.
+            Building TrueHire (reference checking for recruiters) | Previously: BorrowXchange | Open to technical consulting.
           </motion.p>
 
           {/* CTA Buttons */}
