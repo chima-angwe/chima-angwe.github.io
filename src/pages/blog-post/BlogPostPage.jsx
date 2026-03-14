@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useFetch } from '../../hooks/useFetch';
 import { getBlogPostBySlug, incrementViews } from '../../services/blogService';
@@ -11,39 +12,66 @@ import './BlogPostPage.css';
 const BlogPostPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const { data: post, loading, error, refetch } = useFetch(
-    () => getBlogPostBySlug(slug),
-    [slug]
-  );
+  const {
+    data: post,
+    loading,
+    error,
+    refetch,
+  } = useFetch(() => getBlogPostBySlug(slug), [slug]);
 
-  // Increment view count when post loads
   useEffect(() => {
     if (post) {
-      incrementViews(slug).catch((err) => console.error('Failed to increment views:', err));
+      incrementViews(slug).catch((err) =>
+        console.error('Failed to increment views:', err)
+      );
     }
   }, [post, slug]);
 
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  // Navigation handlers
-  const handleBackToBlog = () => {
-    navigate('/blog', { replace: false });
-  };
+  const handleBackToBlog = () => navigate('/blog', { replace: false });
+  const handleViewAllArticles = () => navigate('/blog', { replace: false });
 
-  const handleViewAllArticles = () => {
-    navigate('/blog', { replace: false });
-  };
+  // Build a clean excerpt for the description
+  const metaDescription =
+    post?.excerpt ||
+    post?.content?.replace(/<[^>]+>/g, '').slice(0, 160) ||
+    'Read this article on The Thing About Chima';
+
+  const metaImage =
+    post?.featuredImage ||
+    'https://res.cloudinary.com/dpcgk2sev/image/upload/v1767302939/my_new_chima_z7bzan.jpg';
+
+  const metaUrl = `https://chima-angwe.github.io/#/blog/${slug}`;
 
   return (
     <div className="blog-post-page">
-      {/* Main Content */}
+      {/* Dynamic OG tags — works for JS-enabled crawlers */}
+      {post && (
+        <Helmet>
+          <title>{post.title} | The Thing About Chima</title>
+
+          <meta property="og:title" content={post.title} />
+          <meta property="og:description" content={metaDescription} />
+          <meta property="og:image" content={metaImage} />
+          <meta property="og:url" content={metaUrl} />
+          <meta property="og:type" content="article" />
+          <meta property="og:site_name" content="The Thing About Chima" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={post.title} />
+          <meta name="twitter:description" content={metaDescription} />
+          <meta name="twitter:image" content={metaImage} />
+
+          <meta name="description" content={metaDescription} />
+        </Helmet>
+      )}
+
       <div className="blog-post-page-wrapper">
-        {/* Sticky Navigation Bar */}
         <nav className="blog-post-navigation">
-          <button 
+          <button
             className="blog-post-nav-link"
             onClick={handleBackToBlog}
             type="button"
@@ -57,28 +85,23 @@ const BlogPostPage = () => {
           </div>
         </nav>
 
-        {/* Loading State */}
         {loading && (
           <div className="blog-post-loading">
             <Loader size="large" />
           </div>
         )}
 
-        {/* Error State */}
         {error && (
           <div className="blog-post-error">
             <ErrorMessage message={error} onRetry={refetch} />
           </div>
         )}
 
-        {/* Blog Post Content */}
         {!loading && !error && post && (
           <>
             <div className="blog-post-container">
               <BlogPost post={post} />
             </div>
-
-            {/* Related Articles Section */}
             <section className="blog-post-related">
               <div className="blog-post-related-header">
                 <h2>Continue Reading</h2>
