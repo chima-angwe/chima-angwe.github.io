@@ -1,4 +1,6 @@
-/* Header Base */
+/* ───────────────────────────────────────────
+   Header Base  (desktop — hidden on mobile)
+─────────────────────────────────────────── */
 .header {
   position: sticky;
   top: 0;
@@ -9,7 +11,15 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Pill-Shaped Navigation Container */
+@media (max-width: 767px) {
+  .header {
+    display: none;
+  }
+}
+
+/* ───────────────────────────────────────────
+   Pill-Shaped Nav Container
+─────────────────────────────────────────── */
 .nav-pill {
   display: flex;
   align-items: center;
@@ -24,7 +34,9 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Logo */
+/* ───────────────────────────────────────────
+   Logo
+─────────────────────────────────────────── */
 .logo {
   display: flex;
   align-items: center;
@@ -47,7 +59,9 @@
   box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
-/* Navigation Icons Container */
+/* ───────────────────────────────────────────
+   Desktop Nav Icons
+─────────────────────────────────────────── */
 .nav-icons {
   display: none;
   align-items: center;
@@ -62,7 +76,6 @@
   }
 }
 
-/* Navigation Icon */
 .nav-icon {
   display: flex;
   align-items: center;
@@ -94,7 +107,7 @@
   border-radius: 50%;
 }
 
-/* Tooltip on hover */
+/* Tooltip */
 .nav-icon::before {
   content: attr(data-label);
   position: absolute;
@@ -115,7 +128,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Tooltip arrow */
 .nav-icon::after {
   position: absolute;
   bottom: -15px;
@@ -142,31 +154,9 @@
   opacity: 1;
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
-  margin-left: auto;
-}
-
-.menu-toggle:hover {
-  color: var(--primary);
-}
-
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-/* Hire Me Button */
+/* ───────────────────────────────────────────
+   Hire Me Button
+─────────────────────────────────────────── */
 .hire-btn {
   padding: 0.65rem 1.4rem;
   background: var(--primary);
@@ -181,6 +171,11 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.hire-btn a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .hire-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
@@ -190,58 +185,90 @@
   transform: translateY(0);
 }
 
-/* Mobile Menu */
-.mobile-menu {
+/* ───────────────────────────────────────────
+   Mobile Bottom Nav
+─────────────────────────────────────────── */
+.bottom-nav {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: rgb(0, 0, 0);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1rem;
 }
 
 @media (max-width: 767px) {
-  .mobile-menu {
-    display: block;
+  .bottom-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 0.6rem 0.5rem;
+    /* Safe area for phones with home indicator */
+    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
   }
 }
 
-.mobile-menu-content {
+.bottom-nav-item {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease, transform 0.2s ease;
+  flex: 1;
 }
 
-.mobile-link {
+.bottom-nav-item:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bottom-nav-item.active {
+  color: var(--primary);
+}
+
+.bottom-nav-item.active svg {
+  filter: drop-shadow(0 0 6px rgba(220, 38, 38, 0.6));
+}
+
+/* Bounce on tap */
+.bottom-nav-item:active {
+  transform: scale(0.88);
+}
+
+/* "Journey" CTA pill inside bottom nav */
+.bottom-nav-cta {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.6);
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  background: var(--primary);
+  color: #0a0a0a;
   text-decoration: none;
-  transition: all 0.3s ease;
-  font-weight: 500;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
 }
 
-.mobile-link:hover,
-.mobile-link.active {
-  background: rgba(220, 38, 38, 0.1);
-  color: var(--primary);
-  border-color: rgba(220, 38, 38, 0.3);
-  transform: translateX(4px);
+.bottom-nav-cta:active {
+  transform: scale(0.92);
 }
 
-/* Tablet Responsive */
+/* ───────────────────────────────────────────
+   Tablet
+─────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .header {
     padding: 0.75rem 1.5rem;
@@ -264,32 +291,5 @@
   .hire-btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.85rem;
-  }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-  .header {
-    padding: 0.5rem 1rem;
-  }
-
-  .nav-pill {
-    gap: 0.75rem;
-    padding: 0.6rem 1rem;
-    border-radius: 50px;
-  }
-
-  .logo {
-    height: 40px;
-    font-size: 0.7rem;
-  }
-
-  .hire-btn {
-    padding: 0.55rem 1rem;
-    font-size: 0.8rem;
-  }
-
-  .menu-toggle {
-    padding: 0.4rem;
   }
 }
