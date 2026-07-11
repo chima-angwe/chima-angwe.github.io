@@ -8,17 +8,31 @@ import Textarea from '../../common/textarea/Textarea';
 import Button from '../../common/button/Button';
 import './ContactForm.css';
 
+const REASONS = [
+  { label: 'Following TrueHire', subject: 'Following TrueHire' },
+  { label: 'Hiring for a project', subject: 'Project inquiry' },
+  { label: 'Teaching / speaking', subject: 'Teaching or speaking' },
+  { label: 'Just say hi', subject: 'Just saying hi' },
+];
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [activeReason, setActiveReason] = useState(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm();
+
+  const handleReasonClick = (reason) => {
+    setActiveReason(reason.label);
+    setValue('subject', reason.subject, { shouldValidate: true });
+  };
 
   const onSubmit = async (data) => {
     try {
@@ -29,6 +43,7 @@ const ContactForm = () => {
       await submitContactForm(data);
 
       setSubmitSuccess(true);
+      setActiveReason(null);
       reset();
 
       // Clear success message after 5 seconds
@@ -51,6 +66,22 @@ const ContactForm = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
+      <div className="contact-reasons">
+        <span className="contact-reasons-label">What's this about?</span>
+        <div className="contact-reasons-chips">
+          {REASONS.map((reason) => (
+            <button
+              key={reason.label}
+              type="button"
+              className={`reason-chip ${activeReason === reason.label ? 'reason-chip-active' : ''}`}
+              onClick={() => handleReasonClick(reason)}
+            >
+              {reason.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
         {/* Name */}
         <Input
@@ -100,7 +131,7 @@ const ContactForm = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <p>✅ Message sent successfully! I'll get back to you soon.</p>
+            <p>Message sent &mdash; I'll get back to you soon.</p>
           </motion.div>
         )}
 
@@ -111,7 +142,7 @@ const ContactForm = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <p>❌ {submitError}</p>
+            <p>{submitError}</p>
           </motion.div>
         )}
 
@@ -126,8 +157,8 @@ const ContactForm = () => {
             'Sending...'
           ) : (
             <>
-              <FaPaperPlane size={16} className="mr-2" />
-              Send Message
+              <FaPaperPlane size={14} />
+              Send message
             </>
           )}
         </Button>

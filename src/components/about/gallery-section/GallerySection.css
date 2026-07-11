@@ -3,24 +3,19 @@
 }
 
 .gallery-section-title {
-  font-size: 2rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 500;
   color: var(--secondary);
-  text-align: center;
-  margin-bottom: 0.75rem;
-}
-
-@media (min-width: 768px) {
-  .gallery-section-title {
-    font-size: 2.5rem;
-  }
+  text-align: left;
+  margin-bottom: 0.5rem;
 }
 
 .gallery-section-subtitle {
-  font-size: 1rem;
-  color: var(--gray-medium);
-  text-align: center;
-  margin-bottom: 3rem;
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .gallery-grid {
@@ -45,7 +40,7 @@
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -84,14 +79,14 @@
 
 .gallery-category {
   font-size: 0.75rem;
-  color: var(--primary);
+  color: var(--accent-text);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .gallery-badge {
   font-size: 0.7rem;
-  color: var(--primary);
+  color: var(--accent-text);
   margin-top: 0.5rem;
   font-weight: 600;
 }
@@ -117,7 +112,7 @@
   width: 100%;
   max-width: 500px;
   background: var(--surface);
-  border-radius: 1.5rem;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -252,7 +247,7 @@
 
 .card-description {
   font-size: 0.95rem;
-  color: var(--gray-medium);
+  color: var(--gray-light);
   line-height: 1.6;
   margin: 0;
   flex-grow: 1;
@@ -291,7 +286,7 @@
 @media (max-width: 768px) {
   .gallery-card-container {
     max-width: 100%;
-    border-radius: 1rem;
+    border-radius: 8px;
     max-height: 95vh;
   }
 

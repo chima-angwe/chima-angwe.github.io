@@ -25,7 +25,7 @@
 }
 
 .projects-table-wrapper {
-  background-color: var(--gray-dark);
+  background-color: var(--surface);
   border-radius: 0.75rem;
   overflow-x: auto;
 }
@@ -159,7 +159,7 @@
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: var(--gray-dark);
+  background-color: var(--surface);
   border-radius: 0.75rem;
 }
 

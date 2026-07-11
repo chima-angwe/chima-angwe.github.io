@@ -78,7 +78,7 @@ const BlogPostPage = () => {
             title="Back to blog list"
           >
             <FaArrowLeft size={16} />
-            <span>Back to Blog</span>
+            <span>Back to Journey</span>
           </button>
           <div className="blog-post-nav-breadcrumb">
             <span>Reading Article</span>

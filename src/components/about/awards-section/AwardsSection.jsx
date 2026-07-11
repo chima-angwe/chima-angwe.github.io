@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaTrophy, FaCertificate } from 'react-icons/fa';
+import { FaTrophy, FaCertificate, FaLightbulb } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md';
 
 import { containerVariants, fadeInUp } from '../../../utils/animations';
 import './AwardsSection.css';
-import { title } from 'framer-motion/client';
 
 const AwardsSection = () => {
   const achievements = [
@@ -26,12 +25,12 @@ const AwardsSection = () => {
         'Comprehensive training in software development, covering multiple programming languages and frameworks.',
     },
     {
-      icon: MdWork,
-      title: 'Software Engineer',
+      icon: FaLightbulb,
+      title: 'Founder',
       organization: 'BorrowXchange',
       date: '2025-2026',
       description:
-        'Played a key role in developing scalable web applications and improving user experience.',
+        'Built and shipped the full product solo, then paused after realizing we\'d launched without validating demand \u2014 the lesson TrueHire is built around.',
     },
     {
       icon: FaTrophy,

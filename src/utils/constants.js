@@ -34,7 +34,7 @@ export const PERSONAL_INFO = {
   tagline: 'Building TrueHire (reference checking for recruiters) | Previously: BorrowXchange | Open to technical consulting',
   bio: 'Passionate full-stack developer with expertise in React, Node.js, and MongoDB. I love creating beautiful, functional, and user-friendly applications.',
   location: 'Lagos, Nigeria',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/resume1.pdf',
 };
 
 // Contact info

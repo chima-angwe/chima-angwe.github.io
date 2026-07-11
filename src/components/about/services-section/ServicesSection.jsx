@@ -17,7 +17,7 @@ const ServicesSection = () => {
       icon: FaMobile,
       title: 'Mobile Development',
       description:
-        'Creating cross-platform mobile applications with React Native for iOS and Android.',
+        'Building cross-platform mobile apps with Flutter for iOS and Android.',
     },
     {
       icon: FaServer,

@@ -43,7 +43,11 @@ const SkillsSection = () => {
                 return (
                   <div key={skill.id} className="skill-badge">
                     {Icon && (
-                      <Icon size={20} style={{ color: skill.color }} />
+                      <Icon
+                        size={16}
+                        className="skill-badge-icon"
+                        style={{ '--skill-color': skill.color }}
+                      />
                     )}
                     <span>{skill.name}</span>
                   </div>

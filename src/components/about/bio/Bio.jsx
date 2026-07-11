@@ -24,7 +24,7 @@ const Bio = () => {
               alt="Chima Angwe"
               className="bio-image"
             />
-            <div className="bio-image-border" />
+            <span className="bio-image-caption">subject: chima angwe</span>
           </div>
         </motion.div>
 
@@ -39,33 +39,34 @@ const Bio = () => {
 
           <div className="bio-paragraphs">
             <p>
-              Hi! I'm <span className="text-gradient">Chima Angwe</span>, a
-              software engineer and founder based in Lagos, Nigeria. Right now,
-              I'm building TrueHire - a reference checking tool for recruiters.
-              I'm in customer discovery mode, talking to 20+ recruiters to
-              deeply understand their problems before writing code. (Learned
-              that lesson the hard way from my first startup.)
+              Hi! I'm <strong>Chima Angwe</strong>, a software engineer and
+              founder based in Lagos, Nigeria. Right now, I'm building TrueHire
+              &mdash; a reference-checking tool for recruiters. I'm in customer
+              discovery mode, talking to 20+ recruiters to deeply understand
+              their problems before writing code. (Learned that lesson the hard
+              way from my first startup.)
             </p>
 
             <p>
-              Previously, I founded BorrowXchange (P2P rental marketplace). We
+              Previously, I founded BorrowXchange, a P2P rental marketplace. We
               built the full product but paused after realizing we'd built
               without customer validation. That experience taught me: talk to
-              users first, build second
+              users first, build second.
             </p>
 
             <p>
-              On the technical side, I'm a full-stack developer (React, Node.js,
-              MERN stack). I build fast, clean products. Previously built
-              portfolio sites for LinkedIn coaches. I'm open to freelance work
-              and consulting while building TrueHire
+              On the technical side, I'm a full-stack developer working in
+              React, Node.js, and the wider MERN stack. I build fast, clean
+              products &mdash; including a queue management app I built and
+              deployed for a real salon client. I'm open to freelance work and
+              consulting while building TrueHire.
             </p>
           </div>
 
-          <div className="mt-6 flex justify-start">
+          <div className="bio-cta">
             <Button variant="primary" onClick={() => setIsResumeOpen(true)}>
-              <FaDownload size={16} className="mr-2" />
-              View Resume
+              <FaDownload size={16} />
+              View my CV
             </Button>
           </div>
         </motion.div>

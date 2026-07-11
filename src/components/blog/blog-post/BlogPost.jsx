@@ -114,7 +114,8 @@ const BlogPost = ({ post }) => {
             <div>
               <div className="blog-post-author-name">Written by Chima</div>
               <div className="blog-post-author-bio">
-                Passionate about software development and sharing knowledge
+                Founder of TrueHire, writing about what discovery calls
+                actually teach you.
               </div>
             </div>
           </div>

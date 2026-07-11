@@ -10,7 +10,7 @@
 .login-container {
   width: 100%;
   max-width: 28rem;
-  background-color: var(--gray-dark);
+  background-color: var(--surface);
   padding: 2.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);

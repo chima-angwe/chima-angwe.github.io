@@ -1,26 +1,45 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 /* Custom design tokens for Tailwind v4 */
 :root {
-  /* Color Palette - 10-30-60 Rule */
-  --primary: #DC2626;
-  /* Red - 10% (Accents, CTAs) */
-  --secondary: #FFFFFF;
-  /* White - 30% (Text, Cards) */
-  --dominant: #0A0A0A;
-  /* Black - 60% (Backgrounds) */
-  /* Additional Shades */
-  --gray-light: #F5F5F5;
-  --gray-medium: #6B7280;
-  --gray-dark: #1F2937;
+  /* Brand accent: brick/rust, deliberately not the warm terracotta/clay
+     that reads as a generic AI-portfolio default. Used sparingly. */
+  --primary: #B4432E;
+  --primary-dim: #8C3524;      /* hover/active state */
+  --primary-dark: #8C3524;     /* alias — referenced by legacy component styles */
+  --accent-text: #E8917E;      /* accent color when used as text on dark bg (links, emphasis) */
+
+  --secondary: #EDEAE2;        /* warm bone-white, was pure #FFFFFF */
+  --secondary-light: #F5F3EE;
+
+  --dominant: #121317;         /* cool graphite, was near-black #0A0A0A */
+  --background: #121317;       /* alias */
+  --surface: #191B20;          /* raised card background */
+  --surface-2: #1F2127;        /* nested / hover raised background */
+
+  --gray-light: #9C9A93;
+  --gray-lighter: #B9B7B0;
+  --gray-medium: #9C9A93;
+  --gray-dark: #6B6A65;
+
+  --text: #EDEAE2;             /* alias of secondary, for components using --text */
+  --accent: #B4432E;           /* alias of primary */
+
+  --line: rgba(237, 234, 226, 0.10);
+  --line-strong: rgba(237, 234, 226, 0.18);
+
+  /* Kept distinct from brand accent — real error states should stay legible red */
+  --danger: #DC2626;
+  --danger-dark: #B91C1C;
+
+  /* Success/verified state — ties to the case-file concept, distinct from brand accent */
+  --verified: #5C8368;
+
   /* Typography */
-  --font-sans: "Inter", sans-serif;
-  --font-heading: "Poppins", sans-serif;
-  --font-mono: "Fira Code", monospace;
-  /* Animations */
-  --fade-in: fadeIn 0.3s ease-in;
-  --slide-up: slideUp 0.3s ease-out;
-  --slide-down: slideDown 0.3s ease-out;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Fraunces', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
 /* Keyframes */

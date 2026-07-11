@@ -213,7 +213,7 @@
 }
 
 .form-select option {
-  background-color: var(--gray-dark);
+  background-color: var(--surface);
   color: var(--secondary);
 }
 

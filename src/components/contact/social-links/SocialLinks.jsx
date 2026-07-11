@@ -51,10 +51,11 @@ const SocialLinks = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="social-link-card"
+              style={{ '--social-color': link.color }}
               variants={fadeInUp}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
             >
-              <Icon size={32} style={{ color: link.color }} />
+              <Icon size={26} />
               <span className="social-link-name">{link.name}</span>
             </motion.a>
           );

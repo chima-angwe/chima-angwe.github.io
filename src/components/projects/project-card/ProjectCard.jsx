@@ -22,7 +22,10 @@ const ProjectCard = ({ project, onClick }) => {
       {/* Project Content */}
       <div className="project-card-content">
         {/* Category Badge */}
-        <span className="project-card-category">{project.category}</span>
+        <div className="project-card-meta">
+          <span className="project-card-category">{project.category}</span>
+          {project.featured && <span className="project-card-featured">featured</span>}
+        </div>
 
         {/* Title */}
         <h3 className="project-card-title" onClick={onClick}>

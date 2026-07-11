@@ -8,12 +8,12 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
   const [loading, setLoading] = useState(true);
 
   // Use PUBLIC_URL to ensure compatibility with GitHub Pages
-  const pdfPath = 'https://chima-angwe.github.io/resume.pdf';
+  const pdfPath = 'https://chima-angwe.github.io/resume1.pdf';
 
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = pdfPath;
-    link.download = 'resume.pdf';
+    link.download = 'resume1.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

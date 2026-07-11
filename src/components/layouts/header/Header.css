@@ -6,9 +6,9 @@
   top: 0;
   z-index: 50;
   padding: 1rem 2rem;
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(18, 19, 23, 0.85);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--line);
 }
 
 @media (max-width: 767px) {
@@ -18,171 +18,77 @@
 }
 
 /* ───────────────────────────────────────────
-   Pill-Shaped Nav Container
+   Nav Container
 ─────────────────────────────────────────── */
 .nav-pill {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 2.5rem;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 60px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 0.85rem 0;
 }
 
 /* ───────────────────────────────────────────
    Logo
 ─────────────────────────────────────────── */
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 50px;
-  background: var(--primary);
-  color: #0a0a0a;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--secondary);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.85rem;
-  border-radius: 10px;
   flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.25);
-}
-
-.logo:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
 /* ───────────────────────────────────────────
-   Desktop Nav Icons
+   Desktop Nav Links
 ─────────────────────────────────────────── */
-.nav-icons {
+.nav-links {
   display: none;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
   flex: 1;
-  justify-content: center;
 }
 
 @media (min-width: 768px) {
-  .nav-icons {
+  .nav-links {
     display: flex;
   }
 }
 
-.nav-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.5);
+.nav-link {
+  color: var(--gray-light);
   text-decoration: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
-  position: relative;
+  font-size: 0.88rem;
+  transition: color 0.2s ease;
 }
 
-.nav-icon:hover {
-  color: var(--primary);
-  transform: translateY(-2px);
+.nav-link:hover {
+  color: var(--secondary);
 }
 
-.nav-icon.active {
-  color: var(--primary);
-}
-
-.nav-icon.active::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  width: 5px;
-  height: 5px;
-  background: var(--primary);
-  border-radius: 50%;
-}
-
-/* Tooltip */
-.nav-icon::before {
-  content: attr(data-label);
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: var(--primary);
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.nav-icon::after {
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid var(--primary);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  content: '';
-  pointer-events: none;
-  z-index: 101;
-}
-
-.nav-icon:hover::before {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.nav-icon:hover::after {
-  opacity: 1;
+.nav-link.active {
+  color: var(--secondary);
 }
 
 /* ───────────────────────────────────────────
-   Hire Me Button
+   Journey CTA Button
 ─────────────────────────────────────────── */
 .hire-btn {
-  padding: 0.65rem 1.4rem;
+  padding: 0.6rem 1.2rem;
   background: var(--primary);
-  color: #0a0a0a;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hire-btn a {
-  color: inherit;
+  color: var(--secondary);
   text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
 }
 
 .hire-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
-}
-
-.hire-btn:active {
-  transform: translateY(0);
+  background: var(--primary-dim);
 }
 
 /* ───────────────────────────────────────────
@@ -203,12 +109,10 @@
     right: 0;
     z-index: 50;
     padding: 0.6rem 0.5rem;
-    /* Safe area for phones with home indicator */
     padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
-    background: rgba(10, 10, 10, 0.92);
+    background: rgba(18, 19, 23, 0.94);
     backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid var(--line);
   }
 }
 
@@ -218,52 +122,21 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.4rem 0.6rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--gray-dark);
   text-decoration: none;
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.03em;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
   flex: 1;
 }
 
 .bottom-nav-item:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--gray-light);
 }
 
 .bottom-nav-item.active {
   color: var(--primary);
-}
-
-.bottom-nav-item.active svg {
-  filter: drop-shadow(0 0 6px rgba(220, 38, 38, 0.6));
-}
-
-/* Bounce on tap */
-.bottom-nav-item:active {
-  transform: scale(0.88);
-}
-
-/* "Journey" CTA pill inside bottom nav */
-.bottom-nav-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.45rem 0.9rem;
-  background: var(--primary);
-  color: #0a0a0a;
-  text-decoration: none;
-  font-size: 0.65rem;
-  font-weight: 700;
-  border-radius: 20px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
-}
-
-.bottom-nav-cta:active {
-  transform: scale(0.92);
 }
 
 /* ───────────────────────────────────────────
@@ -275,21 +148,15 @@
   }
 
   .nav-pill {
-    gap: 1.5rem;
-    padding: 0.7rem 1.2rem;
+    gap: 1.75rem;
   }
 
-  .logo {
-    width: 55px;
-    height: 48px;
-  }
-
-  .nav-icons {
-    gap: 1rem;
+  .nav-links {
+    gap: 1.25rem;
   }
 
   .hire-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.8rem;
   }
 }

@@ -45,12 +45,18 @@ const Blog = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="blog-title">Blog</h1>
+          <span className="blog-kicker tag">
+            <span className="tag-dot" />
+            case file &middot; 003
+          </span>
+          <h1 className="blog-title">The Journey</h1>
           <p className="blog-subtitle">
-            Thoughts, tutorials, and insights about web development and technology
+            Notes from building TrueHire in the open &mdash; what discovery calls
+            actually teach you, what BorrowXchange got wrong, and what I'm
+            learning as I go.
           </p>
           {totalPosts > 0 && (
-            <p className="blog-count">{totalPosts} articles published</p>
+            <p className="blog-count">{totalPosts} entries so far</p>
           )}
         </motion.div>
 

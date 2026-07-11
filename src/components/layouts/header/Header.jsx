@@ -1,7 +1,6 @@
 // Header.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   HiHome,
   HiUser,
@@ -11,46 +10,40 @@ import {
 import { FaEnvelope } from 'react-icons/fa';
 import './Header.css';
 
+const navLinks = [
+  { name: 'Home', path: '/', icon: HiHome },
+  { name: 'About', path: '/about', icon: HiUser },
+  { name: 'Projects', path: '/projects', icon: HiShoppingBag },
+  { name: 'Journey', path: '/blog', icon: HiDocument },
+  { name: 'Connect', path: '/contact', icon: FaEnvelope },
+];
+
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Home', path: '/', icon: HiHome },
-    { name: 'About', path: '/about', icon: HiUser },
-    { name: 'Projects', path: '/projects', icon: HiShoppingBag },
-    { name: 'Blog', path: '/blog', icon: HiDocument },
-    { name: 'Contact', path: '/contact', icon: FaEnvelope },
-  ];
-
   return (
     <>
       {/* ── Desktop header (hidden on mobile) ── */}
       <header className="header">
         <nav className="nav-pill">
-          <Link to="/" className="logo">Chima</Link>
+          <Link to="/" className="logo">Chima Angwe</Link>
 
-          <div className="nav-icons">
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  end
-                  data-label={link.name}
-                  className={({ isActive }) =>
-                    `nav-icon ${isActive ? 'active' : ''}`
-                  }
-                >
-                  <Icon size={20} />
-                </NavLink>
-              );
-            })}
+          <div className="nav-links">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                end
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
           </div>
 
-          <button className="hire-btn">
-            <Link to="/blog">My Founder Journey</Link>
-          </button>
+          <Link to="/blog" className="hire-btn">
+            Follow the journey
+          </Link>
         </nav>
       </header>
 

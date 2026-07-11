@@ -233,7 +233,7 @@
 
 .messages-list::-webkit-scrollbar-thumb,
 .message-detail::-webkit-scrollbar-thumb {
-  background: var(--gray-dark);
+  background: var(--surface);
   border-radius: 4px;
 }
 

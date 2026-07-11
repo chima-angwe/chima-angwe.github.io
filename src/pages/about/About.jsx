@@ -12,7 +12,7 @@ const GallerySection = lazy(() => import('../../components/about/gallery-section
 const AwardsSection = lazy(() => import('../../components/about/awards-section/AwardsSection'));
 
 const SectionLoader = () => (
-  <div style={{ height: '300px', background: '#000000ff', animation: 'pulse 2s infinite' }} />
+  <div style={{ height: '300px', background: 'var(--surface)', animation: 'pulse 2s infinite' }} />
 );
 
 const About = () => {
@@ -43,6 +43,10 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <span className="about-kicker tag">
+            <span className="tag-dot" />
+            case file &middot; 001
+          </span>
           <h1 className="about-title">The Thing About Chima</h1>
           <p className="about-subtitle">
             Get to know more about who I am, what I do, and what I'm passionate

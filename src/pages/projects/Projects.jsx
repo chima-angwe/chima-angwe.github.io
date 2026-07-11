@@ -12,11 +12,14 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const { data: projects, loading, error, refetch } = useFetch(getAllProjects);
 
-  // Filter projects by category
+  // Filter by category, then float featured projects to the front —
+  // same reasoning as the homepage: don't let API insertion order decide
+  // which project a visitor sees first.
   const filteredProjects = projects
-    ? selectedCategory === 'All'
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory)
+    ? (selectedCategory === 'All'
+        ? [...projects]
+        : projects.filter((project) => project.category === selectedCategory)
+      ).sort((a, b) => (b.featured === true) - (a.featured === true))
     : [];
 
   return (
@@ -29,6 +32,10 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <span className="projects-kicker tag">
+            <span className="tag-dot" />
+            case file &middot; 002
+          </span>
           <h1 className="projects-title">My Projects</h1>
           <p className="projects-subtitle">
             A collection of projects I've worked on, showcasing my skills and creativity

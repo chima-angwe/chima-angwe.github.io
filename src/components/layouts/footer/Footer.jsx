@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         {/* Name */}
-        <h2 className="footer-name">Angwe Chima</h2>
+        <h2 className="footer-name">Chima Angwe</h2>
 
         {/* Social Links */}
         <div className="footer-social">

@@ -21,8 +21,8 @@ const Contact = () => {
     {
       icon: FaPhone,
       label: 'Phone',
-      value: '+234 915 846 8602',
-      link: 'tel:+2349158468602',
+      value: '+234 810 401 8914',
+      link: 'tel:+2348104018914',
     },
   ];
 
@@ -36,11 +36,15 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="contact-title">Get In Touch</h1>
+          <span className="contact-kicker tag">
+            <span className="tag-dot" />
+            case file &middot; 004
+          </span>
+          <h1 className="contact-title">Let's Connect</h1>
           <p className="contact-subtitle">
-            Have a project in mind or just want to say hi? Feel free to reach out!
-            <br />
-            I'm always open to discussing new opportunities and ideas.
+            Most of what's on this site came out of a conversation somewhere
+            &mdash; a discovery call, a DM, a comment on a post. If you want to
+            start one, this is how.
           </p>
         </motion.div>
 
@@ -58,9 +62,9 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <h2 className="contact-info-title">Contact Information</h2>
+            <h2 className="contact-info-title">Other ways in</h2>
             <p className="contact-info-description">
-              You can also reach me through the following channels:
+              Prefer email or a call? Either works.
             </p>
 
             <div className="contact-info-list">
@@ -69,7 +73,7 @@ const Contact = () => {
                 return (
                   <div key={index} className="contact-info-item">
                     <div className="contact-info-icon">
-                      <Icon size={24} />
+                      <Icon size={18} />
                     </div>
                     <div className="contact-info-text">
                       <p className="contact-info-label">{info.label}</p>
@@ -91,11 +95,11 @@ const Contact = () => {
 
             {/* Availability */}
             <div className="contact-availability">
-              <h3 className="contact-availability-title">Availability</h3>
+              <h3 className="contact-availability-title">A heads-up on timing</h3>
               <p className="contact-availability-text">
-                I typically respond within 24 hours on business days.
-                <br />
-                For urgent matters, please mention it in your message.
+                Between TrueHire discovery calls and two teaching schedules,
+                some weeks are fuller than others &mdash; but I read
+                everything, and you'll hear back within a day or two.
               </p>
             </div>
           </motion.div>
