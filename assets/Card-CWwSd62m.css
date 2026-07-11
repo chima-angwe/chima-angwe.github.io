@@ -1,0 +1,1 @@
+.card{background-color:var(--surface);padding:1.5rem;border-radius:6px;border:1px solid var(--line);transition:border-color .25s ease}.card:hover{border-color:var(--line-strong)}
