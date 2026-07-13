@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
   FaHome,
   FaFolder,
@@ -8,6 +7,7 @@ import {
   FaEnvelope,
   FaImages,
   FaSignOutAlt,
+  FaUsers,
 } from 'react-icons/fa';
 import { useAuth } from '../../../hooks/useAuth';
 import './Sidebar.css';
@@ -18,9 +18,10 @@ const Sidebar = () => {
 
   const menuItems = [
     { path: '/admin/dashboard', icon: FaHome, label: 'Dashboard' },
-    { path: '/admin/projects', icon: FaFolder, label: 'Projects' },
-    { path: '/admin/blog', icon: FaBlog, label: 'Blog Posts' },
+    { path: '/admin/projects', icon: FaFolder, label: 'Case Files' },
+    { path: '/admin/blog', icon: FaBlog, label: 'Journey' },
     { path: '/admin/gallery', icon: FaImages, label: 'Gallery' },
+    { path: '/admin/subscribers', icon: FaUsers, label: 'Subscribers' },
     { path: '/admin/messages', icon: FaEnvelope, label: 'Messages' },
   ];
 
@@ -33,7 +34,8 @@ const Sidebar = () => {
     <aside className="admin-sidebar">
       {/* Logo */}
       <div className="sidebar-header">
-        <h2 className="sidebar-logo">Admin Panel</h2>
+        <span className="sidebar-tag">case file &middot; admin</span>
+        <h2 className="sidebar-logo">Chima Angwe</h2>
       </div>
 
       {/* Navigation */}
@@ -48,7 +50,7 @@ const Sidebar = () => {
                 `sidebar-link ${isActive ? 'sidebar-link-active' : ''}`
               }
             >
-              <Icon size={20} />
+              <Icon size={17} />
               <span>{item.label}</span>
             </NavLink>
           );
@@ -58,7 +60,7 @@ const Sidebar = () => {
       {/* Logout */}
       <div className="sidebar-footer">
         <button onClick={handleLogout} className="sidebar-logout">
-          <FaSignOutAlt size={20} />
+          <FaSignOutAlt size={16} />
           <span>Logout</span>
         </button>
       </div>

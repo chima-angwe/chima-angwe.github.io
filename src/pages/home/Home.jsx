@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../../components/home/hero/Hero';
+import FounderJourney from '../../components/home/founder-journey/FounderJourney';
 import './Home.css';
 
 // Lazy load heavy components - only load when scrolled to
@@ -25,6 +26,8 @@ const Home = () => {
     >
       {/* Hero loads immediately - critical for first paint */}
       <Hero />
+
+       <FounderJourney />
 
       {/* Everything else lazy loads on demand */}
       <Suspense fallback={<ComponentLoader />}>

@@ -20,6 +20,7 @@ const AdminDashboard = lazy(() => import('./pages/admin/admin-dashboard/AdminDas
 const ManageProjects = lazy(() => import('./pages/admin/manage-projects/ManageProjects'));
 const ManageGallery = lazy(() => import('./pages/admin/manage-gallery/ManageGallery'));
 const ManagerBlog = lazy(() => import('./pages/admin/manage-blog/ManageBlog'));
+const ManageSubscribers = lazy(() => import('./pages/admin/manage-subscribers/ManageSubscribers'));
 const ViewMessages = lazy(() => import('./pages/admin/view-messages/ViewMessages'));
 
 // Fallback component while loading
@@ -57,6 +58,7 @@ function App() {
             <Route path="projects" element={<ManageProjects />} />
             <Route path="gallery" element={<ManageGallery />} />
             <Route path="blog" element={<ManagerBlog />} />
+            <Route path="subscribers" element={<ManageSubscribers />} />
             <Route path="messages" element={<ViewMessages />} />
           </Route>
         </Routes>

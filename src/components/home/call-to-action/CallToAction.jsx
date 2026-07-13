@@ -22,7 +22,7 @@ const CallToAction = () => {
           </p>
           <div className="cta-buttons">
             <Link to="/contact">
-              <Button variant="primary">Get in touch</Button>
+              <Button variant="primary">Connect with me</Button>
             </Link>
             <Link to="/projects">
               <Button variant="text">See other work</Button>

@@ -1,8 +1,16 @@
 .blog-post {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
   word-spacing: 0.05em;
+}
+
+.blog-post-image-wrapper,
+.blog-post-header,
+.blog-post-footer {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ===================================
@@ -40,10 +48,10 @@
    =================================== */
 
 .blog-post-header {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   position: relative;
   z-index: 2;
-  padding: 2rem 0;
+  padding: 2.5rem 0 1.5rem;
 }
 
 .blog-post-category {
@@ -166,8 +174,8 @@
 .blog-post-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
   justify-content: flex-end;
 }
 
@@ -212,7 +220,7 @@
   position: relative;
   z-index: 1;
   line-height: 1.8;
-  margin: 3rem 0;
+  margin: 1.5rem 0 3rem;
 }
 
 /* Paragraphs */
@@ -226,7 +234,8 @@
 }
 
 .blog-post-content p:first-child {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1.7;
   font-weight: 400;
   color: var(--secondary);
   margin-bottom: 2rem;
@@ -431,7 +440,7 @@
 
 @media (max-width: 768px) {
   .blog-post-content {
-    margin: 2rem 0;
+    margin: 1rem 0 2rem;
   }
 
   .blog-post-content p {
@@ -440,7 +449,7 @@
   }
 
   .blog-post-content p:first-child {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
   .blog-post-content h1 {
@@ -528,7 +537,7 @@
 
   .blog-post-actions {
     justify-content: flex-end;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .blog-post-footer-content {
@@ -570,4 +579,146 @@
   .blog-post-content {
     color: #000;
   }
+}
+/* ===================================
+   READING PROGRESS BAR
+   =================================== */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  transform-origin: left;
+  z-index: 200;
+}
+
+/* ===================================
+   BODY LAYOUT — content + TOC
+   =================================== */
+.blog-post-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.blog-post-content {
+  max-width: 750px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===================================
+   TABLE OF CONTENTS
+   =================================== */
+.blog-post-toc {
+  width: 13rem;
+  flex-shrink: 0;
+  display: none;
+}
+
+@media (min-width: 1150px) {
+  .blog-post-toc {
+    display: block;
+  }
+}
+
+.blog-post-toc-sticky {
+  position: sticky;
+  top: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-left: 1px solid var(--line);
+  padding-left: 1.25rem;
+}
+
+.blog-post-toc-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-dark);
+}
+
+.blog-post-toc-sticky nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.toc-link {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--gray-dark);
+  transition: color 200ms ease;
+}
+
+.toc-link:hover {
+  color: var(--gray-light);
+}
+
+.toc-link-active {
+  color: var(--accent-text);
+}
+
+.toc-level-3 {
+  padding-left: 0.9rem;
+  font-size: 0.8rem;
+}
+
+/* ===================================
+   SHARE BUTTON — animated state swap
+   =================================== */
+.blog-post-action-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===================================
+   BACK TO TOP
+   =================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface);
+  border: 1px solid var(--line-strong);
+  color: var(--gray-light);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 90;
+  transition: all 200ms ease;
+}
+
+.back-to-top:hover {
+  border-color: var(--primary);
+  color: var(--accent-text);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+}
+
+/* Anchor offset so scroll-to-heading doesn't tuck under the sticky nav */
+.blog-post-content h2,
+.blog-post-content h3 {
+  scroll-margin-top: 6rem;
 }

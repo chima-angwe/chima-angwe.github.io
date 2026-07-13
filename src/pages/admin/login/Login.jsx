@@ -56,8 +56,12 @@ const Login = () => {
       >
         {/* Logo/Title */}
         <div className="login-header">
+          <span className="tag">
+            <span className="tag-dot" />
+            case file &middot; admin access
+          </span>
           <h1 className="login-title">Admin Login</h1>
-          <p className="login-subtitle">Sign in to manage your portfolio</p>
+          <p className="login-subtitle">Sign in to manage the site</p>
         </div>
 
         {/* Login Form */}
@@ -112,7 +116,7 @@ const Login = () => {
 
         {/* Footer */}
         <div className="login-footer">
-          <p>Forgot your password? Contact support.</p>
+          <p>Private access only.</p>
         </div>
       </motion.div>
     </div>

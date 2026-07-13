@@ -1,11 +1,12 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaFolder, FaBlog, FaEnvelope, FaImages, FaEye } from 'react-icons/fa';
+import { FaFolder, FaBlog, FaEnvelope, FaImages, FaUsers } from 'react-icons/fa';
 import { getAllProjects } from '../../../services/projectService';
 import { getAllBlogPosts } from '../../../services/blogService';
 import { getAllMessages } from '../../../services/contactService';
 import { getAllGalleryImages } from '../../../services/galleryService';
+import { getSubscribers } from '../../../services/subscriberService';
 import Card from '../../../components/common/card/Card';
 import { containerVariants, fadeInUp } from '../../../utils/animations';
 import './AdminDashboard.css';
@@ -25,17 +26,19 @@ const AdminDashboard = () => {
     blogPosts: 0,
     messages: 0,
     gallery: 0,
+    subscribers: 0,
   });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [projects, blog, messages, gallery] = await Promise.all([
+        const [projects, blog, messages, gallery, subscribers] = await Promise.all([
           getAllProjects(),
           getAllBlogPosts(1, 1000),
           getAllMessages(),
           getAllGalleryImages(),
+          getSubscribers().catch(() => []), // don't let this block the rest if it errors
         ]);
 
         setStats({
@@ -43,6 +46,7 @@ const AdminDashboard = () => {
           blogPosts: blog.totalPosts || blog.posts?.length || 0,
           messages: messages.filter((m) => !m.read).length,
           gallery: gallery.length,
+          subscribers: subscribers.length || 0,
         });
       } catch (error) {
         console.error('Failed to fetch stats:', error);
@@ -56,32 +60,34 @@ const AdminDashboard = () => {
 
   const statCards = [
     {
-      title: 'Projects',
+      title: 'Case Files',
       count: stats.projects,
       icon: FaFolder,
       link: '/admin/projects',
-      color: '#3B82F6',
     },
     {
-      title: 'Blog Posts',
+      title: 'Journey Entries',
       count: stats.blogPosts,
       icon: FaBlog,
       link: '/admin/blog',
-      color: '#10B981',
+    },
+    {
+      title: 'Subscribers',
+      count: stats.subscribers,
+      icon: FaUsers,
+      link: '/admin/subscribers',
     },
     {
       title: 'Unread Messages',
       count: stats.messages,
       icon: FaEnvelope,
       link: '/admin/messages',
-      color: '#F59E0B',
     },
     {
       title: 'Gallery Images',
       count: stats.gallery,
       icon: FaImages,
       link: '/admin/gallery',
-      color: '#8B5CF6',
     },
   ];
 
@@ -93,8 +99,12 @@ const AdminDashboard = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
+        <span className="tag">
+          <span className="tag-dot" />
+          case file &middot; overview
+        </span>
         <h1 className="dashboard-title">Dashboard</h1>
-        <p className="dashboard-subtitle">Welcome back! Here's your portfolio overview.</p>
+        <p className="dashboard-subtitle">Here's where everything stands.</p>
       </motion.div>
 
       {/* Stats Grid - loads immediately (critical content) */}
@@ -110,11 +120,8 @@ const AdminDashboard = () => {
             <motion.div key={stat.title} variants={fadeInUp}>
               <Link to={stat.link}>
                 <Card className="stat-card">
-                  <div
-                    className="stat-icon"
-                    style={{ backgroundColor: `${stat.color}20` }}
-                  >
-                    <Icon size={28} style={{ color: stat.color }} />
+                  <div className="stat-icon">
+                    <Icon size={20} />
                   </div>
                   <div className="stat-content">
                     <p className="stat-title">{stat.title}</p>

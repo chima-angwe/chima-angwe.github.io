@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useFetch } from '../../hooks/useFetch';
 import { getAllBlogPosts } from '../../services/blogService';
 import BlogGrid from '../../components/blog/blog-grid/BlogGrid';
+import JourneySignup from '../../components/blog/journey-signup/JourneySignup';
 import Loader from '../../components/common/loader/Loader';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import Button from '../../components/common/button/Button';
@@ -59,6 +60,8 @@ const Blog = () => {
             <p className="blog-count">{totalPosts} entries so far</p>
           )}
         </motion.div>
+
+        <JourneySignup />
 
         {/* Loading State */}
         {loading && <Loader size="large" />}

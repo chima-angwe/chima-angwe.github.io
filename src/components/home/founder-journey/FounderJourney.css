@@ -1,0 +1,147 @@
+.founder-journey {
+  background-color: var(--dominant);
+  border-top: 1px solid var(--line);
+}
+
+.fj-header {
+  margin-bottom: 3.5rem;
+  max-width: 32rem;
+}
+
+.fj-header .tag {
+  margin-bottom: 1.25rem;
+}
+
+.fj-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--secondary);
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .fj-title {
+    font-size: 2.5rem;
+  }
+}
+
+.fj-timeline {
+  position: relative;
+  max-width: 42rem;
+}
+
+/* Track + scroll-linked fill line */
+.fj-line-track {
+  position: absolute;
+  top: 0.6rem;
+  left: 1.4rem;
+  width: 1px;
+  height: calc(100% - 2rem);
+  background: var(--line-strong);
+}
+
+@media (min-width: 640px) {
+  .fj-line-track {
+    left: 1.75rem;
+  }
+}
+
+.fj-line-fill {
+  width: 1px;
+  background: var(--primary);
+  transform-origin: top;
+}
+
+.fj-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.fj-stage {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 0;
+}
+
+@media (min-width: 640px) {
+  .fj-stage {
+    gap: 2rem;
+  }
+}
+
+.fj-node {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  transition: border-color 300ms ease, background-color 300ms ease;
+}
+
+@media (min-width: 640px) {
+  .fj-node {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.fj-stage:hover .fj-node {
+  border-color: var(--primary);
+  background-color: var(--surface-2);
+}
+
+.fj-node-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--gray-light);
+  transition: color 300ms ease;
+}
+
+.fj-stage:hover .fj-node-num {
+  color: var(--accent-text);
+}
+
+.fj-content {
+  flex: 1;
+  padding-top: 0.3rem;
+}
+
+.fj-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-dark);
+  margin-bottom: 0.5rem;
+}
+
+.fj-stage-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--secondary);
+  margin-bottom: 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .fj-stage-title {
+    font-size: 1.55rem;
+  }
+}
+
+.fj-stage-body {
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  line-height: 1.7;
+  max-width: 34rem;
+}

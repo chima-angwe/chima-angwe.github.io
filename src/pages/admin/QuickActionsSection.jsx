@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaFolder, FaBlog, FaImages, FaEye } from 'react-icons/fa';
+import { FaFolder, FaBlog, FaImages, FaEye, FaUsers } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const QuickActionsSection = () => {
@@ -16,24 +16,28 @@ const QuickActionsSection = () => {
     >
       <h2 className="actions-title">Quick Actions</h2>
       <div className="actions-grid">
-        <Link to="#/admin/projects" className="action-card">
-          <FaFolder size={24} />
-          <span>Manage Projects</span>
+        <Link to="/admin/projects" className="action-card">
+          <FaFolder size={20} />
+          <span>Manage Case Files</span>
         </Link>
-        <Link to="#/admin/blog" className="action-card">
-          <FaBlog size={24} />
-          <span>Manage Blog</span>
+        <Link to="/admin/blog" className="action-card">
+          <FaBlog size={20} />
+          <span>Manage Journey</span>
         </Link>
-        <Link to="#/admin/gallery" className="action-card">
-          <FaImages size={24} />
+        <Link to="/admin/gallery" className="action-card">
+          <FaImages size={20} />
           <span>Manage Gallery</span>
+        </Link>
+        <Link to="/admin/subscribers" className="action-card">
+          <FaUsers size={20} />
+          <span>View Subscribers</span>
         </Link>
         <div
           className="action-card"
           onClick={() => navigate('/')}
           style={{ cursor: 'pointer' }}
         >
-          <FaEye size={24} />
+          <FaEye size={20} />
           <span>View Live Site</span>
         </div>
       </div>

@@ -100,10 +100,14 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  /* was: center */
   justify-content: center;
   z-index: 1000;
-  padding: 1rem;
+  padding: 6rem 1rem 2rem;
+  /* was: padding: 1rem — top clears the sticky nav */
+  overflow-y: auto;
+  /* lets the backdrop itself scroll on short viewports */
   backdrop-filter: blur(4px);
 }
 
@@ -117,7 +121,8 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  max-height: 80vh;
+  max-height: calc(100vh - 8rem);
+  /* was: 80vh — matches the new backdrop padding */
 }
 
 /* Close Button */
@@ -238,7 +243,7 @@
   font-size: 0.75rem;
   padding: 0.3rem 0.75rem;
   background-color: var(--primary);
-  color: white;
+  color: var(--secondary);
   border-radius: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -284,10 +289,15 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  .gallery-backdrop {
+    padding: 4.5rem 1rem 1.5rem;
+  }
+
   .gallery-card-container {
     max-width: 100%;
     border-radius: 8px;
-    max-height: 95vh;
+    max-height: calc(100vh - 6rem);
+    /* was: 95vh */
   }
 
   .gallery-card-image-wrapper {
@@ -315,8 +325,13 @@
 }
 
 @media (max-width: 480px) {
+  .gallery-backdrop {
+    padding: 4rem 0.75rem 1rem;
+  }
+
   .gallery-card-container {
-    max-height: 90vh;
+    max-height: calc(100vh - 5rem);
+    /* was: 90vh */
   }
 
   .gallery-card-image-wrapper {
@@ -364,5 +379,133 @@
 
   .indicator-dot.active {
     width: 1.2rem;
+  }
+}
+
+
+/* ===================================
+   NEW: zoom toggle button
+   =================================== */
+.card-zoom-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 0.95rem;
+}
+
+.card-zoom-btn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Zoomed image state */
+.gallery-card-image-wrapper.is-zoomed {
+  touch-action: none;
+}
+
+.gallery-card-image-wrapper.is-zoomed .gallery-card-image {
+  object-fit: contain;
+}
+
+/* ===================================
+   NEW: thumbnail strip
+   =================================== */
+.gallery-thumb-strip {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem 0;
+  overflow-x: auto;
+  background: var(--surface);
+  scrollbar-width: none;
+}
+
+.gallery-thumb-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-thumb {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0;
+  border: 1.5px solid var(--line-strong);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: all 200ms ease;
+  background: none;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-thumb:hover {
+  opacity: 0.85;
+}
+
+.gallery-thumb-active {
+  opacity: 1;
+  border-color: var(--primary);
+}
+
+/* ===================================
+   NEW: keyboard hint footer — desktop only
+   =================================== */
+.card-keyboard-hint {
+  display: none;
+  align-items: center;
+  gap: 1.1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gray-dark);
+}
+
+@media (min-width: 768px) {
+  .card-keyboard-hint {
+    display: flex;
+  }
+}
+
+.card-keyboard-hint kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  margin-right: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 0.65rem;
+  color: var(--gray-light);
+}
+
+@media (max-width: 480px) {
+  .gallery-thumb {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .card-zoom-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.85rem;
   }
 }
