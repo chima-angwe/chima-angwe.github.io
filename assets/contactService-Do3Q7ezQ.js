@@ -1,0 +1,1 @@
+import{aa as a}from"./index-_uDHEmOm.js";const n=async s=>(await a.post("/contact",s)).data,o=async()=>(await a.get("/contact")).data,c=async s=>(await a.patch(`/contact/${s}/read`)).data,r=async s=>(await a.delete(`/contact/${s}`)).data;export{r as d,o as g,c as m,n as s};
