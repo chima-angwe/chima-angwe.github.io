@@ -1,0 +1,1 @@
+import{ad as r}from"./index-CG3LA2YD.js";const n=async s=>(await r.post("/subscribers",{email:s})).data,t=async()=>(await r.get("/subscribers")).data,c=async s=>(await r.patch(`/subscribers/${s}/unsubscribe`)).data;export{t as g,n as s,c as u};
