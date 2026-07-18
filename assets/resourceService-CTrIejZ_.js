@@ -1,0 +1,1 @@
+import{ad as r}from"./index-oGII_GuK.js";const t=async()=>(await r.get("/resources")).data,n=async(s,e)=>(await r.post(`/resources/${s}/download`,{email:e})).data,c=async s=>(await r.post("/resources",s)).data,u=async(s,e)=>(await r.put(`/resources/${s}`,e)).data,p=async s=>(await r.delete(`/resources/${s}`)).data;export{c,p as d,t as g,n as r,u};
