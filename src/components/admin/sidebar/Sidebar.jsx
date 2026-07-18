@@ -8,6 +8,8 @@ import {
   FaImages,
   FaSignOutAlt,
   FaUsers,
+  FaFilePdf,
+  FaBook,
 } from 'react-icons/fa';
 import { useAuth } from '../../../hooks/useAuth';
 import './Sidebar.css';
@@ -21,6 +23,8 @@ const Sidebar = () => {
     { path: '/admin/projects', icon: FaFolder, label: 'Case Files' },
     { path: '/admin/blog', icon: FaBlog, label: 'Journey' },
     { path: '/admin/gallery', icon: FaImages, label: 'Gallery' },
+    { path: '/admin/resources', icon: FaFilePdf, label: 'Resources' },
+    { path: '/admin/books', icon: FaBook, label: 'Books' },
     { path: '/admin/subscribers', icon: FaUsers, label: 'Subscribers' },
     { path: '/admin/messages', icon: FaEnvelope, label: 'Messages' },
   ];

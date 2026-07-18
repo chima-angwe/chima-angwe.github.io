@@ -6,6 +6,7 @@ import {
   HiUser,
   HiShoppingBag,
   HiDocument,
+  HiDownload,
 } from 'react-icons/hi';
 import { FaEnvelope } from 'react-icons/fa';
 import './Header.css';
@@ -15,6 +16,7 @@ const navLinks = [
   { name: 'About', path: '/about', icon: HiUser },
   { name: 'Projects', path: '/projects', icon: HiShoppingBag },
   { name: 'Journey', path: '/blog', icon: HiDocument },
+  { name: 'Resources', path: '/resources', icon: HiDownload },
   { name: 'Connect', path: '/contact', icon: FaEnvelope },
 ];
 
