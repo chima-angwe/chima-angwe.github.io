@@ -4,7 +4,6 @@ import { useFetch } from '../../hooks/useFetch';
 import { getAllResources } from '../../services/resourceService';
 import ResourceCard from '../../components/resources/resource-card/ResourceCard';
 import DownloadModal from '../../components/resources/download-modal/DownloadModal';
-import BooksMarquee from '../../components/resources/books-marquee/BooksMarquee';
 import Loader from '../../components/common/loader/Loader';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import './Resources.css';
@@ -53,7 +52,6 @@ const Resources = () => {
         )}
       </div>
 
-      <BooksMarquee />
 
       <AnimatePresence>
         {activeResource && (

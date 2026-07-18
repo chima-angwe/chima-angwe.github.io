@@ -7,6 +7,7 @@ import JourneySignup from '../../components/blog/journey-signup/JourneySignup';
 import Loader from '../../components/common/loader/Loader';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import Button from '../../components/common/button/Button';
+import BooksMarquee from '../../components/resources/books-marquee/BooksMarquee';
 import './Blog.css';
 
 const Blog = () => {
@@ -117,6 +118,8 @@ const Blog = () => {
           </motion.div>
         )}
       </div>
+      
+      <BooksMarquee />
     </div>
   );
 };

@@ -10,6 +10,8 @@ const SkillsSection = lazy(() => import('../../components/about/skills-section/S
 const ServicesSection = lazy(() => import('../../components/about/services-section/ServicesSection'));
 const GallerySection = lazy(() => import('../../components/about/gallery-section/GallerySection'));
 const AwardsSection = lazy(() => import('../../components/about/awards-section/AwardsSection'));
+import BooksMarquee from '../../components/resources/books-marquee/BooksMarquee';
+
 
 const SectionLoader = () => (
   <div style={{ height: '300px', background: 'var(--surface)', animation: 'pulse 2s infinite' }} />
@@ -56,6 +58,8 @@ const About = () => {
 
         {/* Bio - loads immediately (lightweight) */}
         <Bio />
+
+        <BooksMarquee />
 
         {/* Skills - lazy loaded */}
         <Suspense fallback={<SectionLoader />}>
