@@ -26,6 +26,42 @@
   color: var(--gray-dark);
 }
 
+.resource-card-title-link {
+  text-decoration: none;
+}
+
+.resource-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.resource-card-actions .resource-card-btn {
+  flex: 1;
+  margin-top: 0;
+}
+
+.resource-card-share-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  flex-shrink: 0;
+  background-color: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--gray-light);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.resource-card-share-link:hover {
+  border-color: var(--primary);
+  color: var(--accent-text);
+}
+
 .resource-card-body {
   padding: 1.5rem;
   display: flex;

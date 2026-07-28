@@ -13,6 +13,7 @@ const Blog = lazy(() => import('./pages/blog/Blog'));
 const BlogPostPage = lazy(() => import('./pages/blog-post/BlogPostPage'));
 const Contact = lazy(() => import('./pages/contact/Contact'));
 const Resources = lazy(() => import('./pages/resources/Resources'));
+const ResourceDetail = lazy(() => import('./pages/resources/ResourceDetail'));
 
 // Admin Pages - lazy loaded
 const AdminLayout = lazy(() => import('./components/admin/layout/AdminLayout'));
@@ -45,6 +46,7 @@ function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPostPage />} />
             <Route path="resources" element={<Resources />} />
+            <Route path="resources/:slug" element={<ResourceDetail />} />
             <Route path="contact" element={<Contact />} />
           </Route>
 
