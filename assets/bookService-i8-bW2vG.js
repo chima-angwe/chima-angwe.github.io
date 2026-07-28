@@ -1,0 +1,1 @@
+import{ae as o}from"./index-DWC1kUYH.js";const n=async()=>(await o.get("/books")).data,r=async s=>(await o.post("/books",s)).data,c=async(s,e)=>(await o.put(`/books/${s}`,e)).data,p=async s=>(await o.delete(`/books/${s}`)).data;export{r as c,p as d,n as g,c as u};

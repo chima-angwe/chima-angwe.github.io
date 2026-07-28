@@ -1,0 +1,1 @@
+import{j as s,ab as r}from"./index-DWC1kUYH.js";import{B as a}from"./Button-CPau6c4k.js";const i=({onCreate:t})=>s.jsxs("div",{className:"empty-state",children:[s.jsx("p",{children:"No blog posts yet. Create your first post!"}),s.jsxs(a,{variant:"primary",onClick:t,children:[s.jsx(r,{size:16,className:"mr-2"}),"Create Post"]})]});export{i as default};
