@@ -1,0 +1,1 @@
+import{T as e}from"./index-5tWijl-k.js";const n=async()=>(await e.get("/contact")).data,o=async s=>(await e.patch(`/contact/${s}/read`)).data,r=async s=>(await e.delete(`/contact/${s}`)).data;export{r as d,n as g,o as m};
