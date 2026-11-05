@@ -11,11 +11,10 @@ const ServicesSection = lazy(() => import('../../components/about/services-secti
 const GallerySection = lazy(() => import('../../components/about/gallery-section/GallerySection'));
 const AwardsSection = lazy(() => import('../../components/about/awards-section/AwardsSection'));
 import BooksMarquee from '../../components/resources/books-marquee/BooksMarquee';
+import PageSkeleton from '../../components/common/skeleton/Skeleton';
 
 
-const SectionLoader = () => (
-  <div style={{ height: '300px', background: 'var(--surface)', animation: 'pulse 2s infinite' }} />
-);
+const SectionLoader = () => <PageSkeleton variant="section" />;
 
 const About = () => {
   const location = useLocation();
@@ -47,9 +46,9 @@ const About = () => {
         >
           <span className="about-kicker tag">
             <span className="tag-dot" />
-            case file &middot; 001
+            a bit about me
           </span>
-          <h1 className="about-title">The Thing About Chima</h1>
+          <h2 className="about-title">Beyond the code</h2>
           <p className="about-subtitle">
             Get to know more about who I am, what I do, and what I'm passionate
             about

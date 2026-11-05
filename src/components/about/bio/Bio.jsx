@@ -40,7 +40,7 @@ const Bio = () => {
           <div className="bio-paragraphs">
             <p>
               Hi! I'm <strong>Chima Angwe</strong>, a software engineer and
-              founder based in Lagos, Nigeria. Right now, I'm building TrueHire
+              founder based in Lagos, Nigeria. Right now, I'm building TrueQuo
               &mdash; a reference-checking tool for recruiters. I'm in customer
               discovery mode, talking to 20+ recruiters to deeply understand
               their problems before writing code. (Learned that lesson the hard
@@ -59,7 +59,7 @@ const Bio = () => {
               React, Node.js, and the wider MERN stack. I build fast, clean
               products &mdash; including a queue management app I built and
               deployed for a real salon client. I'm open to freelance work and
-              consulting while building TrueHire.
+              consulting while building TrueQuo.
             </p>
           </div>
 

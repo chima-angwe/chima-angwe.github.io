@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useFetch } from '../../hooks/useFetch';
 import { getBlogPostBySlug, incrementViews } from '../../services/blogService';
 import BlogPost from '../../components/blog/blog-post/BlogPost';
-import Loader from '../../components/common/loader/Loader';
+import PageSkeleton from '../../components/common/skeleton/Skeleton';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import './BlogPostPage.css';
 
@@ -87,7 +87,7 @@ const BlogPostPage = () => {
 
         {loading && (
           <div className="blog-post-loading">
-            <Loader size="large" />
+            <PageSkeleton variant="blog-post" />
           </div>
         )}
 

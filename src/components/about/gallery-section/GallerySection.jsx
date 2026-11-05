@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaChevronLeft, FaChevronRight, FaSearchPlus, FaSearchMinus } from 'react-icons/fa';
 import { useFetch } from '../../../hooks/useFetch';
 import { getAllGalleryImages } from '../../../services/galleryService';
-import Loader from '../../common/loader/Loader';
+import PageSkeleton from '../../common/skeleton/Skeleton';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
 import './GallerySection.css';
 
@@ -121,7 +121,7 @@ const GallerySection = () => {
   if (loading) {
     return (
       <section className="gallery-section">
-        <Loader size="large" />
+        <PageSkeleton variant="gallery-grid" />
       </section>
     );
   }

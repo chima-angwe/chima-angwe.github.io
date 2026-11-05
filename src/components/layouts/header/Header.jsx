@@ -3,7 +3,6 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {
   HiHome,
-  HiUser,
   HiShoppingBag,
   HiDocument,
   HiDownload,
@@ -13,9 +12,8 @@ import './Header.css';
 
 const navLinks = [
   { name: 'Home', path: '/', icon: HiHome },
-  { name: 'About', path: '/about', icon: HiUser },
   { name: 'Projects', path: '/projects', icon: HiShoppingBag },
-  { name: 'Journey', path: '/blog', icon: HiDocument },
+  { name: 'Writing', path: '/blog', icon: HiDocument },
   { name: 'Resources', path: '/resources', icon: HiDownload },
   { name: 'Connect', path: '/contact', icon: FaEnvelope },
 ];
@@ -43,8 +41,8 @@ const Header = () => {
             ))}
           </div>
 
-          <Link to="/blog" className="hire-btn">
-            Follow the journey
+          <Link to="/contact" className="hire-btn">
+            Contact me
           </Link>
         </nav>
       </header>

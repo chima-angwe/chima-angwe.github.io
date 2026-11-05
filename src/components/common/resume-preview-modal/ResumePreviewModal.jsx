@@ -61,11 +61,22 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
               </div>
 
               {/* PDF Viewer */}
-              <div className="bg-white rounded-lg mb-4 overflow-auto h-[80vh]">
+              <div className="bg-white rounded-lg mb-4 overflow-hidden h-[80vh] relative">
                 {loading && (
-                  <div className="flex flex-col items-center justify-center h-full">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
-                    <p className="mt-4 text-gray-600">Loading PDF...</p>
+                  <div className="absolute inset-0 z-10 bg-white p-8" aria-hidden="true">
+                    <div className="mx-auto max-w-2xl animate-pulse space-y-6">
+                      <div className="h-8 w-1/2 rounded bg-slate-200" />
+                      <div className="h-4 w-1/3 rounded bg-slate-100" />
+                      <div className="h-40 rounded border border-slate-100 bg-slate-50 p-6 space-y-3">
+                        <div className="h-3 w-full rounded bg-slate-200" />
+                        <div className="h-3 w-5/6 rounded bg-slate-200" />
+                        <div className="h-3 w-4/6 rounded bg-slate-200" />
+                      </div>
+                      <div className="h-4 w-1/3 rounded bg-slate-200" />
+                      <div className="h-3 w-full rounded bg-slate-100" />
+                      <div className="h-3 w-5/6 rounded bg-slate-100" />
+                      <div className="h-3 w-4/6 rounded bg-slate-100" />
+                    </div>
                   </div>
                 )}
 

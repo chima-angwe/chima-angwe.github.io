@@ -31,7 +31,7 @@ export const SOCIAL_LINKS = {
 export const PERSONAL_INFO = {
   name: 'Chima Angwe',
   title: 'Software Engineer & Founder',
-  tagline: 'Building TrueHire (reference checking for recruiters) | Previously: BorrowXchange | Open to technical consulting',
+  tagline: 'Building TrueQuo (reference checking for recruiters) | Previously: BorrowXchange | Open to technical consulting',
   bio: 'Passionate full-stack developer with expertise in React, Node.js, and MongoDB. I love creating beautiful, functional, and user-friendly applications.',
   location: 'Lagos, Nigeria',
   resumeUrl: '/resume1.pdf',

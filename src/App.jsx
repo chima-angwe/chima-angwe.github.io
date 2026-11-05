@@ -1,13 +1,12 @@
 import React, { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/admin/protected-route/ProtectedRoute';
 import Layout from './components/layouts/layout/Layout';
-import Loader from './components/common/loader/Loader';
+import PageSkeleton from './components/common/skeleton/Skeleton';
 
 // Lazy load all pages - only loads when needed
 const Home = lazy(() => import('./pages/home/Home'));
-const About = lazy(() => import('./pages/about/About'));
 const Projects = lazy(() => import('./pages/projects/Projects'));
 const Blog = lazy(() => import('./pages/blog/Blog'));
 const BlogPostPage = lazy(() => import('./pages/blog-post/BlogPostPage'));
@@ -27,12 +26,7 @@ const ManageResources = lazy(() => import('./pages/admin/manage-resources/Manage
 const ManageBooks = lazy(() => import('./pages/admin/manage-books/ManageBooks'));
 const ViewMessages = lazy(() => import('./pages/admin/view-messages/ViewMessages'));
 
-// Fallback component while loading
-const PageLoader = () => (
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
-    <Loader size="large" />
-  </div>
-);
+const PageLoader = () => <PageSkeleton variant="route" />;
 
 function App() {
   return (
@@ -41,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route path="about" element={<Navigate to="/" replace />} />
             <Route path="projects" element={<Projects />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPostPage />} />

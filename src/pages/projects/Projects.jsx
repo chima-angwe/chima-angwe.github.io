@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useFetch } from '../../hooks/useFetch';
 import { getAllProjects } from '../../services/projectService';
 import ProjectGrid from '../../components/projects/project-grid/ProjectGrid';
-import Loader from '../../components/common/loader/Loader';
+import PageSkeleton from '../../components/common/skeleton/Skeleton';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import { PROJECT_CATEGORIES } from '../../utils/constants';
 import './Projects.css';
@@ -71,7 +71,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Loading State */}
-        {loading && <Loader size="large" />}
+        {loading && <PageSkeleton variant="project-grid" />}
 
         {/* Error State */}
         {error && <ErrorMessage message={error} onRetry={refetch} />}

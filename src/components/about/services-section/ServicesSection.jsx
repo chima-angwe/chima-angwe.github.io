@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCode, FaMobile, FaServer, FaPalette, FaRocket, FaTools } from 'react-icons/fa';
+import { FaCode, FaServer, FaLayerGroup } from 'react-icons/fa';
 import { containerVariants, fadeInUp } from '../../../utils/animations';
 import Card from '../../common/card/Card';
 import './ServicesSection.css';
@@ -9,39 +9,18 @@ const ServicesSection = () => {
   const services = [
     {
       icon: FaCode,
-      title: 'Web Development',
-      description:
-        'Building responsive and performant web applications using modern frameworks like React and Vue.js.',
-    },
-    {
-      icon: FaMobile,
-      title: 'Mobile Development',
-      description:
-        'Building cross-platform mobile apps with Flutter for iOS and Android.',
+      title: 'Frontend Development',
+      description: 'Responsive, accessible interfaces built with React and modern JavaScript.',
     },
     {
       icon: FaServer,
       title: 'Backend Development',
-      description:
-        'Developing robust RESTful APIs and server-side applications with Node.js and Express.',
+      description: 'REST APIs, server-side logic, and data integrations with Node.js, Express, and MongoDB.',
     },
     {
-      icon: FaPalette,
-      title: 'UI/UX Design',
-      description:
-        'Designing intuitive and beautiful user interfaces with a focus on user experience.',
-    },
-    {
-      icon: FaRocket,
-      title: 'Deployment & Hosting',
-      description:
-        'Setting up CI/CD pipelines and deploying applications to cloud platforms like AWS and Vercel.',
-    },
-    {
-      icon: FaTools,
-      title: 'Consultation',
-      description:
-        'Providing technical consultation and architecture planning for your projects.',
+      icon: FaLayerGroup,
+      title: 'Full-Stack Development',
+      description: 'End-to-end web applications, from the user interface to APIs, databases, and deployment.',
     },
   ];
 
@@ -55,7 +34,7 @@ const ServicesSection = () => {
       >
         <h2 className="services-section-title">What I Do</h2>
         <p className="services-section-subtitle">
-          Services I offer to help bring your ideas to life
+          Frontend, backend, and full-stack engineering for useful web products.
         </p>
       </motion.div>
 
@@ -66,10 +45,10 @@ const ServicesSection = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {services.map((service, index) => {
+        {services.map((service) => {
           const Icon = service.icon;
           return (
-            <motion.div key={index} variants={fadeInUp}>
+            <motion.div key={service.title} variants={fadeInUp}>
               <Card className="service-card">
                 <div className="service-icon">
                   <Icon size={32} />

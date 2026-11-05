@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch';
 import { getAllBlogPosts } from '../../../services/blogService';
 import { formatDateShort } from '../../../utils/formatDate';
-import Loader from '../../common/loader/Loader';
+import PageSkeleton from '../../common/skeleton/Skeleton';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
 import './RecentArticles.css';
 
@@ -25,7 +25,7 @@ const RecentArticlesSection = () => {
     return (
       <section className="recent-articles-section section-padding">
         <div className="container-custom">
-          <Loader size="large" />
+          <PageSkeleton variant="recent-articles" />
         </div>
       </section>
     );

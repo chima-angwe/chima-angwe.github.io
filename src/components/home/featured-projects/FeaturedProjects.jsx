@@ -5,7 +5,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useFetch } from '../../../hooks/useFetch';
 import { getFeaturedProjects } from '../../../services/projectService';
 import Card from '../../../components/common/card/Card';
-import Loader from '../../../components/common/loader/Loader';
+import PageSkeleton from '../../../components/common/skeleton/Skeleton';
 import ErrorMessage from '../../../components/common/error-message/ErrorMessage';
 import './FeaturedProjects.css';
 
@@ -16,7 +16,7 @@ const FeaturedProjects = () => {
     return (
       <section className="featured-projects section-padding">
         <div className="container-custom">
-          <Loader size="large" />
+          <PageSkeleton variant="featured-projects" />
         </div>
       </section>
     );
@@ -32,11 +32,11 @@ const FeaturedProjects = () => {
     );
   }
 
-  // Pull TrueHire out as the lead case file regardless of API return order —
+  // Pull TrueQuo out as the lead case file regardless of API return order —
   // don't trust array position, since this list is order-of-creation from the backend,
-  // not curated. Falls back to the first item if TrueHire isn't in the response yet.
+  // not curated. Falls back to the first item if TrueQuo isn't in the response yet.
   const primary =
-    projects?.find((p) => p.title?.toLowerCase().includes('truehire')) || projects?.[0];
+    projects?.find((p) => p.title?.toLowerCase().includes('TrueQuo')) || projects?.[0];
   const secondary = projects?.filter((p) => p !== primary) || [];
 
   return (
@@ -48,7 +48,7 @@ const FeaturedProjects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="featured-projects-title">Case files</h2>
+          <h2 className="featured-projects-title">Selected work</h2>
           <Link to="/projects" className="featured-projects-seeall">
             View all projects &rarr;
           </Link>
@@ -93,7 +93,7 @@ const FeaturedProjects = () => {
         {/* Secondary projects */}
         {secondary.length > 0 && (
           <>
-            <div className="other-builds-label">Other builds</div>
+            <div className="other-builds-label">More work</div>
             <div className="other-builds-grid">
               {secondary.map((project) => (
                 <Card key={project._id} className="other-card">

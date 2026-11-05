@@ -6,7 +6,7 @@ import { FaArrowLeft, FaDownload, FaFilePdf } from 'react-icons/fa';
 import { useFetch } from '../../hooks/useFetch';
 import { getResourceBySlug } from '../../services/resourceService';
 import DownloadModal from '../../components/resources/download-modal/DownloadModal';
-import Loader from '../../components/common/loader/Loader';
+import PageSkeleton from '../../components/common/skeleton/Skeleton';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import './ResourceDetail.css';
 
@@ -21,7 +21,7 @@ const ResourceDetail = () => {
     refetch,
   } = useFetch(() => getResourceBySlug(slug), [slug]);
 
-  if (loading) return <Loader fullScreen size="large" />;
+  if (loading) return <div className="resource-detail-page"><div className="container-custom section-padding"><PageSkeleton variant="resource-detail" /></div></div>;
   if (error) return <ErrorMessage message={error} onRetry={refetch} />;
   if (!resource) return null;
 

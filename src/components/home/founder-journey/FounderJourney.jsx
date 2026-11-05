@@ -18,7 +18,7 @@ const STAGES = [
   {
     num: '03',
     tag: '2026 &middot; present',
-    title: 'TrueHire',
+    title: 'TrueQuo',
     body: '20+ discovery calls in, the real insight surfaced: digital background checks are automatable, but physical, on-the-ground verification isn\u2019t. That gap \u2014 and who controls it \u2014 is the wedge.',
   },
   {

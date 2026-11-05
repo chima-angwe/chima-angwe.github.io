@@ -261,7 +261,7 @@ const BlogPost = ({ post }) => {
               <div>
                 <div className="blog-post-author-name">Written by Chima</div>
                 <div className="blog-post-author-bio">
-                  Founder of TrueHire, writing about what discovery calls
+                  Founder of TrueQuo, writing about what discovery calls
                   actually teach you.
                 </div>
               </div>

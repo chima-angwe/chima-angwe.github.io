@@ -4,7 +4,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { getAllBlogPosts } from '../../services/blogService';
 import BlogGrid from '../../components/blog/blog-grid/BlogGrid';
 import JourneySignup from '../../components/blog/journey-signup/JourneySignup';
-import Loader from '../../components/common/loader/Loader';
+import PageSkeleton from '../../components/common/skeleton/Skeleton';
 import ErrorMessage from '../../components/common/error-message/ErrorMessage';
 import Button from '../../components/common/button/Button';
 import BooksMarquee from '../../components/resources/books-marquee/BooksMarquee';
@@ -53,7 +53,7 @@ const Blog = () => {
           </span>
           <h1 className="blog-title">The Journey</h1>
           <p className="blog-subtitle">
-            Notes from building TrueHire in the open &mdash; what discovery calls
+            Notes from building TrueQuo in the open &mdash; what discovery calls
             actually teach you, what BorrowXchange got wrong, and what I'm
             learning as I go.
           </p>
@@ -65,7 +65,7 @@ const Blog = () => {
         <JourneySignup />
 
         {/* Loading State */}
-        {loading && <Loader size="large" />}
+        {loading && <PageSkeleton variant="blog-grid" />}
 
         {/* Error State */}
         {error && <ErrorMessage message={error} onRetry={refetch} />}

@@ -9,7 +9,7 @@ import Button from '../../common/button/Button';
 import './ContactForm.css';
 
 const REASONS = [
-  { label: 'Following TrueHire', subject: 'Following TrueHire' },
+  { label: 'Following TrueQuo', subject: 'Following TrueQuo' },
   { label: 'Hiring for a project', subject: 'Project inquiry' },
   { label: 'Teaching / speaking', subject: 'Teaching or speaking' },
   { label: 'Just say hi', subject: 'Just saying hi' },

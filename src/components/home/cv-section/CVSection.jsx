@@ -71,7 +71,7 @@ const CVSection = () => {
           <div className="cv-content">
             <h2 className="cv-title">How I actually work</h2>
             <p className="cv-subtitle">
-              I didn't set out to run four things at once &mdash; TrueHire, freelance
+              I didn't set out to run four things at once &mdash; TrueQuo, freelance
               work, and two teaching roles. But building in public and teaching what
               I'm learning turned out to compound. Here's what that looks like day to day.
             </p>

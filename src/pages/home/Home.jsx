@@ -1,56 +1,29 @@
 import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../../components/home/hero/Hero';
-import FounderJourney from '../../components/home/founder-journey/FounderJourney';
+import PageSkeleton from '../../components/common/skeleton/Skeleton';
 import './Home.css';
 
-// Lazy load heavy components - only load when scrolled to
 const FeaturedProjects = lazy(() => import('../../components/home/featured-projects/FeaturedProjects'));
-const SkillsOverview = lazy(() => import('../../components/home/skills-overview/SkillsOverview'));
-const CVSection = lazy(() => import('../../components/home/cv-section/CVSection'));
+const AboutSections = lazy(() => import('../about/About'));
 const RecentArticles = lazy(() => import('../../components/home/Recent-articles/RecentArticles'));
 const CallToAction = lazy(() => import('../../components/home/call-to-action/CallToAction'));
 
-// Light skeleton/placeholder while loading
-const ComponentLoader = () => (
-  <div style={{ height: '400px', background: '#000000ff', animation: 'pulse 2s infinite' }} />
+const SectionLoader = () => <PageSkeleton variant="section" />;
+
+const Home = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="home-page"
+  >
+    <Hero />
+    <Suspense fallback={<SectionLoader />}><FeaturedProjects /></Suspense>
+    <Suspense fallback={<SectionLoader />}><AboutSections /></Suspense>
+    <Suspense fallback={<SectionLoader />}><RecentArticles /></Suspense>
+    <Suspense fallback={<SectionLoader />}><CallToAction /></Suspense>
+  </motion.div>
 );
-
-const Home = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="home-page"
-    >
-      {/* Hero loads immediately - critical for first paint */}
-      <Hero />
-
-       <FounderJourney />
-
-      {/* Everything else lazy loads on demand */}
-      <Suspense fallback={<ComponentLoader />}>
-        <FeaturedProjects />
-      </Suspense>
-
-      <Suspense fallback={<ComponentLoader />}>
-        <SkillsOverview />
-      </Suspense>
-
-      <Suspense fallback={<ComponentLoader />}>
-        <CVSection />
-      </Suspense>
-
-      <Suspense fallback={<ComponentLoader />}>
-        <RecentArticles />
-      </Suspense>
-
-      <Suspense fallback={<ComponentLoader />}>
-        <CallToAction />
-      </Suspense>
-    </motion.div>
-  );
-};
 
 export default Home;
